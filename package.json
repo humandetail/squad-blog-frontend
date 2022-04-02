@@ -29,5 +29,8 @@
     "commitizen": {
       "path": "./node_modules/cz-customizable"
     }
+  },
+  "dependencies": {
+    "sass": "^1.49.11"
   }
 }
