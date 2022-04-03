@@ -75,7 +75,7 @@
     <footer class="footer">
       <p>
         ——这些都是网上说的
-        <nuxt-link to="/aboutUs">
+        <nuxt-link to="/about">
           @Humandetail
         </nuxt-link>
       </p>

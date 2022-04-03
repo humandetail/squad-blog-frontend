@@ -14,5 +14,7 @@ export default {
   'secondary-text': ['#6a7288'],
   'timeline-background': ['#cdcdcd'],
   'border-color': ['#dfdfdf'],
-  placeholder: ['#999']
+  'placeholder-color': ['#999'],
+  'plain-color': ['#fff'],
+  'box-shadow': ['0 3px 6px rgba(0,0,0,.15)']
 }

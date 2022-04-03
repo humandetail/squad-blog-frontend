@@ -1,3 +1,3 @@
-export default () => {
-  return useState('categories', () => [])
-}
+import { CategoriesData } from '~~/types/response'
+
+export default () => useState<CategoriesData[]>('categories', () => [])
