@@ -9,5 +9,7 @@
     "plugin:nuxt/recommended"
   ],
   "plugins": [],
-  "rules": {}
+  "rules": {
+    "vue/no-multiple-template-root": 0
+  }
 }

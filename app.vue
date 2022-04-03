@@ -22,16 +22,3 @@ const rootVar = computed(() => {
   return Object.entries(themeConfig).map(([name, colors]) => `--${name}: ${colors[theme.value]};`).join('')
 })
 </script>
-
-<style>
-html {
-  font-size: 18px;
-  font-family: BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-sans;
-}
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--background-color);
-  color: var(--primary-text);
-}
-</style>
