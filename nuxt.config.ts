@@ -2,7 +2,10 @@ import { defineNuxtConfig } from 'nuxt3'
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/eslint-module'],
+  modules: [
+    '@nuxtjs/eslint-module',
+    '@vueuse/nuxt'
+  ],
 
   publicRuntimeConfig: {
     API_BASE_URL: 'http://localhost:7001/api/frontend-service'
