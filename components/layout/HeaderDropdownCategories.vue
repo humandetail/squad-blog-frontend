@@ -13,7 +13,7 @@
         class="item"
       >
         <nuxt-link
-          :to="`/categoires/${item.name}`"
+          :to="`/categories/${item.name}`"
         >
           {{ item.displayName }}
         </nuxt-link>
