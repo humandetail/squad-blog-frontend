@@ -32,5 +32,8 @@
     "commitizen": {
       "path": "./node_modules/cz-customizable"
     }
+  },
+  "dependencies": {
+    "swiper": "^8.0.7"
   }
 }

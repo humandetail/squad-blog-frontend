@@ -45,19 +45,23 @@ export interface SkillItem {
 }
 
 export interface WorkItem {
+  id: number;
   description: string;
   link: string;
   name: string;
   pictures: PictureItem[]
 }
 
-export interface AboutUsData {
+export interface PersonalItem {
   blog: string;
   email: string;
   github: string;
   intro: string;
   nickname: string;
   qq: string;
+}
+
+export interface AboutUsData extends PersonalItem {
   skills: SkillItem[];
   works: WorkItem[];
 }
