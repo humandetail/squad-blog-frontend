@@ -44,12 +44,12 @@ const onPaginationChange = async ({ currentPage, currentPageSize }: PaginationCh
 
 const pagination = usePagination({
   page: 1,
-  pageSize: 2,
+  pageSize: 10,
   onPageChange: onPaginationChange,
   onPageSizeChange: onPaginationChange
 })
 
-onPaginationChange({ currentPage: 1, currentPageSize: 2 })
+onPaginationChange({ currentPage: 1, currentPageSize: 10 })
 </script>
 
 <style lang="scss" scoped>
