@@ -16,5 +16,6 @@ export default {
   'border-color': ['#dfdfdf'],
   'placeholder-color': ['#999'],
   'plain-color': ['#fff'],
-  'box-shadow': ['0 3px 6px rgba(0,0,0,.15)']
+  'box-shadow': ['0 3px 6px rgba(0,0,0,.15)'],
+  'img-background': ['#f6f6f6']
 }
