@@ -9,6 +9,13 @@
   max-width: 100%;
 }
 
+:root {
+  --wrapper-width: 9.6rem;
+  --aside-width: 3rem;
+  --aside-padding: .16rem;
+  --border-radius: .16rem;
+}
+
 html {
   font-size: 100px;
   font-family: BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-sans;

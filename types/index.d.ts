@@ -6,3 +6,5 @@ export type BreadcrumbRoute = {
 }
 
 export type BreadcrumbDivider = '/' | '|' | '>'
+
+export type AsideModules = 'recommended' | 'tags';
