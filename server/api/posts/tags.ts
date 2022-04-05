@@ -4,6 +4,10 @@ import { publicConfig } from '#config'
 const { API_BASE_URL } = publicConfig
 
 export default (req: IncomingMessage) => {
-  const params = useQuery(req)
-  return $fetch(`${API_BASE_URL}/tags/${params.name}/posts`)
+  const { name, ...query } = useQuery(req)
+  return $fetch(`${API_BASE_URL}/tags/${name}/posts`, {
+    params: {
+      ...query
+    }
+  })
 }

@@ -37,7 +37,7 @@ const NuxtLink = resolveComponent('NuxtLink')
   .widget {
     display: inline-flex;
     align-items: center;
-    color: var(--secondary-text);
+    color: var(--primary-text);
 
     &.is-link {
       text-decoration: none;
