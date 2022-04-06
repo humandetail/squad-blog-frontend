@@ -57,7 +57,7 @@ const getButtons = ({ link }: WorkItem) => {
 
   if (links.length === 1) {
     return [
-      { id: 1, link: link[0], name: '查看详情' }
+      { id: 1, link: link[0], name: '查看项目' }
     ]
   }
 
@@ -75,10 +75,6 @@ const getButtons = ({ link }: WorkItem) => {
   .title {
     font-size: .2rem;
     line-height: .28rem;
-  }
-
-  .list {
-    margin-top: -.48rem;
   }
 
   .item {
