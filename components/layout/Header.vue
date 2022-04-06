@@ -8,6 +8,8 @@
       <div class="fluid right-fluid">
         <LayoutHeaderSearch />
         <LayoutHeaderMode />
+
+        <slot />
       </div>
     </LayoutContainer>
   </header>

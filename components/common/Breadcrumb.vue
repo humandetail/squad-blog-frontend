@@ -84,6 +84,7 @@ const isEmpty = computed(() => !props.routes || props.routes.length === 0)
     }
 
     .iconfont {
+      margin-right: .04rem;
       font-size: .24rem;
     }
   }
