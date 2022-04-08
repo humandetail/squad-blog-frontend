@@ -2,18 +2,27 @@ interface BaseResponseType {
   createdTime: Date;
   updatedTime: Date;
 }
+export type WebSiteStatusType = 0 | 1 | 2;
 
-interface PostLinkType {
-  id: string;
-  title: string;
+export type TagItem = {
+  name: string;
+  displayName: string;
 }
 
-type WebSiteStatusType = 0 | 1 | 2;
+export type CategoryItem = {
+  name: string;
+  displayName: string;
+}
 
 export interface FetchResponseType<T = any> {
   code: number;
   data: T;
   message: string;
+}
+
+export interface PostLinkType {
+  id: string;
+  title: string;
 }
 
 export interface PageResponseType<T> {
@@ -95,28 +104,31 @@ export interface PostItem extends BaseResponseType {
   coverPic: string;
   recommendationIndex: number;
   summary: string;
-  tags: Array<{ name: string; displayName: string; }>
+  tags: Array<TagItem>
 }
 
-export interface Post extends BaseResponseType {
-  id: string;
+export interface PostData {
   author: string;
-  category: { name: string; displayName: string; } | null;
+  category: CategoryItem;
   content: string;
   coverPic: string;
+  createdTime: Date;
+  id: string;
   recommendationIndex: number;
   seoDescription: string;
   seoKeywords: string;
   seoTitle: string;
   source: string;
   summary: string;
-  tags: Array<{ name: string; displayName: string; }>;
+  tags: TagItem[];
   template: string;
   title: string;
+  viewCount: number;
+  updatedTime: Date;
 }
 
-export interface PostData {
-  post: any;
+export interface PostDetail {
+  post: PostData;
   next?: PostLinkType | null;
   prev?: PostLinkType | null;
 }

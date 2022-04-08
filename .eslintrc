@@ -14,6 +14,7 @@
     "vue/multi-word-component-names": 0,
     "vue/no-v-model-argument": 0,
     "vue/no-v-html": 0,
-    "vue/no-v-for-template-key": 0
+    "vue/no-v-for-template-key": 0,
+    "vue/valid-v-slot": 0
   }
 }
