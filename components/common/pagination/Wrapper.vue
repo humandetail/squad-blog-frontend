@@ -104,6 +104,7 @@ const {
 
     &.btn[disabled] {
       cursor: not-allowed;
+      color: var(--disabled-color) !important;
       border-color: var(--border-color);
     }
 
@@ -134,6 +135,7 @@ const {
       margin: 0 .08rem;
       background-color: transparent;
       border: 1px solid var(--primary-text);
+      color: var(--primary-text);
 
       &:hover:not([disabled]) {
         color: var(--brand-color);

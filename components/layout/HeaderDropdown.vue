@@ -21,12 +21,20 @@
 <script setup lang="ts">
 const headerDropdown = useHeaderDropdown()
 
+const handleWindowScroll = () => {
+  headerDropdown.value = false
+}
+
 const handleMouseEnter = () => {
   headerDropdown.value = true
+
+  window.addEventListener('scroll', handleWindowScroll, false)
 }
 
 const handleMouseLeave = () => {
   headerDropdown.value = false
+
+  window.removeEventListener('scroll', handleWindowScroll, false)
 }
 </script>
 

@@ -172,9 +172,10 @@ const modules = [Pagination, EffectFade, Lazy, Autoplay]
     ::v-deep(.swiper-pagination-bullet) {
       width: .1rem;
       height: .1rem;
+      background-color: var(--secondary-text);
 
       &.swiper-pagination-bullet-active {
-        background-color: var(--plain-color);
+        background-color: var(--primary-text);
         box-shadow: var(--banner-bullte-box-shadow);
       }
     }

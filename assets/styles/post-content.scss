@@ -26,6 +26,20 @@
   --squad-list-line-space: 8px;
   --squad-list-margin-left: 48px;
   --squad-border-radius: 16px;
+
+  &[data-theme-mode="dark"] {
+    --squad-plain-color: #1f1f1f;
+    --squad-brand-color: #4a90e2;
+    --squad-primary-text: #242e4c;
+    --squad-header-bg: transparent;
+    --squad-code-bg: #202020;
+    --squad-quote-bg: rgba(142,158,236,.3);
+    --squad-border-color: rgba(255,255,255,.15);
+    --squad-code-border-color: rgba(255,255,255,.15);
+    --squad-table-border-color: #3e3e3e;
+    --squad-tr-color1: rgb(118, 118, 118);
+    --squad-tr-color2: #a5a5a5;
+  }
 }
 
 .squad__post-content {

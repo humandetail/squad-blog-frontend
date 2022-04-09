@@ -19,20 +19,18 @@
 </template>
 
 <script setup lang="ts">
-import { Pagination, A11y } from 'swiper'
+import { Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { PictureItem } from '~~/types/response'
 
 import 'swiper/css'
-import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import 'swiper/css/scrollbar'
 
 defineProps<{
   pictures: PictureItem[]
 }>()
 
-const modules = [Pagination, A11y]
+const modules = [Pagination]
 </script>
 
 <style lang="scss" scoped>
@@ -43,6 +41,17 @@ const modules = [Pagination, A11y]
   ::v-deep(.swiper) {
     width: 100%;
     height: 100%;
+
+    .swiper-pagination-bullet {
+      width: .1rem;
+      height: .1rem;
+      background-color: var(--secondary-text);
+
+      &.swiper-pagination-bullet-active {
+        background-color: var(--primary-text);
+        box-shadow: var(--banner-bullte-box-shadow);
+      }
+    }
   }
 }
 </style>
