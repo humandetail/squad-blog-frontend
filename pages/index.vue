@@ -1,5 +1,8 @@
 <template>
-  <h1>Index Page.</h1>
+  <div class="home-page">
+    <HomeBanner />
+    <HomeNew />
+  </div>
 </template>
 
 <script setup lang="ts">

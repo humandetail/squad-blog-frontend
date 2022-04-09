@@ -17,5 +17,7 @@ export default {
   'placeholder-color': ['#999'],
   'plain-color': ['#fff'],
   'box-shadow': ['0 3px 6px rgba(0,0,0,.15)'],
-  'img-background': ['#f6f6f6']
+  'banner-bullte-box-shadow': ['0 3px 6px rgba(0,0,0,.45)'],
+  'img-background': ['#f6f6f6'],
+  'track-background': ['#cdcdcd']
 }
