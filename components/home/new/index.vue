@@ -142,7 +142,7 @@ $danger-color: var(--danger-color);
           height: .1rem;
           border-radius: 50%;
           background-color: var(--plain-color);
-          border: 2px solid var(--track-background);
+          border: 2px solid var(--timeline-background);
           transform: translate(-50%, -50%);
         }
       }
@@ -225,7 +225,7 @@ $danger-color: var(--danger-color);
             height: .1rem;
             border-radius: 50%;
             background-color: var(--plain-color);
-            border: 2px solid var(--track-background);
+            border: 2px solid var(--timeline-background);
             transform: translate(50%, -50%);
           }
         }
@@ -290,7 +290,7 @@ $danger-color: var(--danger-color);
     top: 1.44rem;
     width: .02rem;
     height: calc(100% - .96rem - .96rem - .24rem);
-    background-color: var(--track-background);
+    background-color: var(--timeline-background);
     transform: translateX(-50%);
   }
 }

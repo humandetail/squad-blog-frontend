@@ -68,6 +68,7 @@ const handleInput = (e: InputEvent) => {
     border: 4px solid var(--brand-color);
     border-top-left-radius: .08rem;
     border-bottom-left-radius: .08rem;
+    background-color: var(--plain-color);
   }
 
   .btn-submit {
