@@ -68,6 +68,7 @@ const widgets = computed(() => {
 @import '~~/assets/styles/mixins.scss';
 
 .item {
+  width: calc(50% - .24rem);
   margin-bottom: .48rem;
   border-radius: .16rem;
   box-shadow: var(--box-shadow);

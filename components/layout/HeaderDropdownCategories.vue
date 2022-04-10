@@ -38,6 +38,10 @@ if (categories.value.length === 0) {
 .categories-wrapper {
   width: 1.2rem;
 
+  @media screen and (max-width: 640px) {
+    width: 1.4rem;
+  }
+
   .title {
     display: flex;
     align-items: center;

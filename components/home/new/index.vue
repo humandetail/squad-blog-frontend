@@ -55,6 +55,12 @@
                     link="/about"
                     icon="user"
                   />
+                  <CommonPostWidget
+                    v-show="false"
+                    class="time"
+                    :value="getTime(item.createdTime)"
+                    icon="time"
+                  />
                 </div>
               </div>
             </div>
@@ -109,6 +115,10 @@ $danger-color: var(--danger-color);
       justify-content: space-between;
       height: 2.2rem;
 
+      @media screen and (max-width: 640px) {
+        margin-left: .48rem;
+      }
+
       &:hover {
         .placeholder{
           ::v-deep(.post-widget) {
@@ -133,6 +143,16 @@ $danger-color: var(--danger-color);
         height: 100%;
         padding: .16rem;
 
+        @media screen and (max-width: 640px) {
+          // display: none;
+          width: .88rem;
+          order: 1;
+
+          ::v-deep(.post-widget) {
+            display: none;
+          }
+        }
+
         &::before {
           content: '';
           position: absolute;
@@ -155,6 +175,15 @@ $danger-color: var(--danger-color);
         border-radius: var(--border-radius);
         background-color: var(--plain-color);
         order: 1;
+
+        @media screen and (max-width: 640px) {
+          order: 2;
+          flex: 1;
+
+          .post-widget.time {
+            display: inline-block !important;
+          }
+        }
 
         &:hover {
           box-shadow: var(--box-shadow);
@@ -227,6 +256,12 @@ $danger-color: var(--danger-color);
             background-color: var(--plain-color);
             border: 2px solid var(--timeline-background);
             transform: translate(50%, -50%);
+
+            @media screen and (max-width: 640px) {
+              left: 0;
+              right: auto;
+              transform: translate(-50%, -50%);
+            }
           }
         }
         .post-item {
@@ -279,6 +314,32 @@ $danger-color: var(--danger-color);
             border-top: .16rem solid transparent;
             border-bottom: .16rem solid transparent;
           }
+
+          @media screen and (max-width: 640px) {
+            &::before {
+              content: '';
+              position: absolute;
+              left: -.16rem;
+              right: auto;
+              top: .16rem;
+              border-right: .16rem solid var(--border-color);
+              border-left: 0;
+              border-top: .16rem solid transparent;
+              border-bottom: .16rem solid transparent;
+            }
+
+            &::after {
+              content: '';
+              position: absolute;
+              left: -.14rem;
+              right: auto;
+              top: .16rem;
+              border-right: .16rem solid var(--plain-color);
+              border-left: 0;
+              border-top: .16rem solid transparent;
+              border-bottom: .16rem solid transparent;
+            }
+          }
         }
       }
     }
@@ -292,6 +353,13 @@ $danger-color: var(--danger-color);
     height: calc(100% - .96rem - .96rem - .24rem);
     background-color: var(--timeline-background);
     transform: translateX(-50%);
+
+    @media screen and (max-width: 640px) {
+      top: 1.92rem;
+      left: 1.44rem;
+      height: calc(100% - .96rem - .96rem - .24rem - .48rem);
+      transform: translateX(0);
+    }
   }
 }
 

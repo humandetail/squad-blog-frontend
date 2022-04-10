@@ -17,6 +17,24 @@ const handleClick = () => {
 }
 </script>
 
+<style lang="scss">
+.posts-layout {
+  .falsy-search {
+    width: .48rem !important;
+    padding: 0 !important;
+    border: none !important;
+
+    .placeholder {
+      display: none !important;
+    }
+
+    .icon-search {
+      font-size: .24rem !important;
+    }
+  }
+}
+</style>
+
 <style lang="scss" scoped>
 .falsy-search {
   display: flex;
@@ -37,7 +55,7 @@ const handleClick = () => {
 
   .icon-search {
     font-size: .2rem;
-    color: var(--border-color)
+    color: var(--border-color);
   }
 }
 </style>

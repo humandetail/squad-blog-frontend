@@ -49,6 +49,7 @@ const NuxtLink = resolveComponent('NuxtLink')
 
     .iconfont {
       margin-right: .04rem;
+      font-size: .16rem;
     }
   }
 }
