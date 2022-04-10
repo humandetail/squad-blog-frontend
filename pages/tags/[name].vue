@@ -2,8 +2,8 @@
   <div class="categories-page">
     <CommonBreadcrumb
       :routes="[
-        { path: 'categories', icon: 'category',name: '分类' },
-        { name: 'PHP' }
+        { path: '', icon: 'tags',name: '标签' },
+        { name: displayName }
       ]"
     />
 
@@ -13,6 +13,18 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const route = useRoute()
+const tags = useTags()
+
+const displayName = computed(() => {
+  const name = route.params.name as string
+  const item = tags.value.find(item => item.name === name)
+
+  return item ? item.displayName : '-'
+})
+</script>
 
 <style lang="scss" scoped>
 .tags-container {

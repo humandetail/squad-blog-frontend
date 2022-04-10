@@ -54,7 +54,8 @@ onPaginationChange({ currentPage: 1, currentPageSize: 2 })
 
 <style lang="scss" scoped>
 .tags-wrapper {
-  width: var(--wrapper-width);
+  flex: 1;
+  margin-right: .2rem;
 
   ::v-deep(.common-pagination-wrapper) {
     padding: .16rem;

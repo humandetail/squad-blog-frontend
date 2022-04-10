@@ -5,7 +5,10 @@
     class="cover-pic-with-link"
   >
     <figure class="cover-pic">
-      <img :src="url">
+      <img
+        :src="url"
+        :style="{ maxWidth: width, maxHeight: height }"
+      >
     </figure>
   </nuxt-link>
   <figure v-else class="cover-pic">
@@ -49,8 +52,8 @@ $height: v-bind(height);
 
   img {
     display: block;
-    width: auto;
-    height: auto;
+    width: auto !important;
+    height: auto !important;
     max-width: 100%;
     max-height: 100%;
   }

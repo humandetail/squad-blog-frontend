@@ -54,7 +54,9 @@ onPaginationChange({ currentPage: 1, currentPageSize: 10 })
 
 <style lang="scss" scoped>
 .categories-wrapper {
-  width: var(--wrapper-width);
+  // width: var(--wrapper-width);
+  flex: 1;
+  margin-right: .2rem;
   padding: .48rem;
   border-radius: .16rem;
   background-color: var(--plain-color);

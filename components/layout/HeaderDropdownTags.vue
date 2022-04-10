@@ -64,7 +64,7 @@ if (tags.value.length === 0) {
         }
 
         &.router-link-exact-active {
-          color: var(--plain-color);
+          color: var(--brand-color);
         }
       }
     }

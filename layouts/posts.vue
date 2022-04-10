@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-const menuVisible = ref(false)
+const menuVisible = ref(true)
 </script>
 
 <style lang="scss" scoped>
