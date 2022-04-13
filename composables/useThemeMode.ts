@@ -1,3 +1,3 @@
 import { Theme } from '~~/config/constants'
 
-export default () => useState<Theme>('themeMode', () => Theme.dark)
+export default () => useState<Theme>('themeMode', () => Theme.default)
