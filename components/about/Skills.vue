@@ -1,5 +1,5 @@
 <template>
-  <section class="skills-wrapper">
+  <section v-if="!isEmpty" class="skills-wrapper">
     <header>
       <h2 class="title">
         我大抵是学废了，细数了一下了解过的技术，这个不会，那个也不会
@@ -43,9 +43,14 @@
 <script setup lang="ts">
 import { SkillItem } from '~~/types/response'
 
-defineProps<{
+const props = defineProps<{
   skills: SkillItem[]
 }>()
+
+const isEmpty = computed(() => {
+  const skills = props.skills
+  return !skills || !Array.isArray(skills) || skills.length === 0
+})
 </script>
 
 <style lang="scss" scoped>

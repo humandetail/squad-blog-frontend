@@ -2,12 +2,13 @@
   <div class="site-wrapper">
     <nuxt-link to="/">
       <img
+        v-if="settings.logoPic"
         class="site-logo"
         :src="settings.logoPic"
         alt="Logo"
       >
       <span class="site-name">
-        {{ settings.siteName }}
+        {{ settings.siteName || '细节个人博客' }}
       </span>
     </nuxt-link>
   </div>

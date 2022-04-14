@@ -102,7 +102,7 @@ const {
     cursor: pointer;
     font-size: .18rem;
 
-    &.btn[disabled] {
+    &.btn[disabled]:not(.current) {
       cursor: not-allowed;
       color: var(--disabled-color) !important;
       border-color: var(--border-color);

@@ -36,7 +36,7 @@ if (tags.value.length === 0) {
 
 <style lang="scss" scoped>
 .tags-wrapper {
-  width: 3.6rem;
+  flex: 1;
 
   .title {
     display: flex;
@@ -51,6 +51,7 @@ if (tags.value.length === 0) {
   .tags {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     margin-top: .16rem;
     .item {
       a {

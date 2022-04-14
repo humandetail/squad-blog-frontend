@@ -1,5 +1,5 @@
 <template>
-  <section class="works-wrapper">
+  <section v-if="!isEmpty" class="works-wrapper">
     <header>
       <h2 class="title">
         曾经做过这些项目
@@ -44,9 +44,14 @@
 <script setup lang="ts">
 import { WorkItem } from '~~/types/response'
 
-defineProps<{
+const props = defineProps<{
   works: WorkItem[]
 }>()
+
+const isEmpty = computed(() => {
+  const works = props.works
+  return !works || !Array.isArray(works) || works.length === 0
+})
 
 const getButtons = ({ link }: WorkItem) => {
   if (!link) {
