@@ -2,7 +2,7 @@
   <button
     class="btn"
     :class="prev ? 'btn-first' : 'btn-last'"
-    @click="$emit('update:current-page', prev ? 1 : pageCount)"
+    @click="$emit('update:current-page', prev ? Math.max(current - 5, 1) : Math.min(pageCount, current + 5))"
   >
     <span
       class="iconfont"
@@ -14,6 +14,7 @@
 <script setup lang="ts">
 defineProps<{
   prev: boolean;
+  current: number;
   pageCount: number;
 }>()
 

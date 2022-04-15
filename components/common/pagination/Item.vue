@@ -1,34 +1,19 @@
 <template>
   <button
-    v-for="item in list"
-    :key="item"
-    :disabled="item === currentPage"
+    :disabled="value === currentPage"
     class="btn btn-page"
-    :class="{ current: item === currentPage }"
-    @click="$emit('update:current-page', item)"
+    :class="{ current: value === currentPage }"
+    @click="$emit('update:current-page', value)"
   >
-    {{ item }}
+    {{ value }}
   </button>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-  start: number;
-  end: number;
+defineProps<{
+  value: number;
   currentPage: number;
 }>()
 
 defineEmits<{(e: 'update:current-page', value: number)}>()
-
-const list = computed(() => {
-  const start = Math.max(1, props.start)
-
-  const arr: number[] = []
-
-  for (let i = start; i <= props.end; i++) {
-    arr.push(i)
-  }
-
-  return arr
-})
 </script>
