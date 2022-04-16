@@ -51,6 +51,7 @@ const replaceKeyword = (value: string) => {
 
   .title {
     line-height: 1.4;
+    font-size: .2rem;
     @include ellipsis;
   }
 
