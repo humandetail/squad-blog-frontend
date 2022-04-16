@@ -2,6 +2,12 @@
   <div class="gallery">
     <swiper
       :modules="modules"
+      :lazy="{
+        enable: true,
+        checkInView: true,
+        loadOnTransitionStart: true
+      }"
+      :preload-images="false"
       :pagination="{ clickable: true }"
     >
       <swiper-slide
@@ -10,27 +16,30 @@
       >
         <CommonCoverPic
           :url="item.url"
+          :lazy="true"
+          lazy-class-name="swiper-lazy"
           width="4.8rem"
           height="3.6rem"
         />
+        <div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
       </swiper-slide>
     </swiper>
   </div>
 </template>
 
 <script setup lang="ts">
-import { Pagination } from 'swiper'
+import { Pagination, Lazy } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { PictureItem } from '~~/types/response'
 
-import 'swiper/css'
-import 'swiper/css/pagination'
+// import 'swiper/css'
+// import 'swiper/css/pagination'
 
 defineProps<{
   pictures: PictureItem[]
 }>()
 
-const modules = [Pagination]
+const modules = [Pagination, Lazy]
 </script>
 
 <style lang="scss" scoped>

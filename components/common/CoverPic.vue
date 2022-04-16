@@ -6,13 +6,30 @@
   >
     <figure class="cover-pic">
       <img
-        :src="url"
+        v-if="lazy"
+        :class="lazyClassName"
+        :data-src="url"
+        :style="{ maxWidth: width, maxHeight: height }"
+      >
+      <img
+        v-else
+        v-lazy="url"
         :style="{ maxWidth: width, maxHeight: height }"
       >
     </figure>
   </nuxt-link>
   <figure v-else class="cover-pic">
-    <img :src="url">
+    <img
+      v-if="lazy"
+      :class="lazyClassName"
+      :data-src="url"
+      :style="{ maxWidth: width, maxHeight: height }"
+    >
+    <img
+      v-else
+      v-lazy="url"
+      :style="{ maxWidth: width, maxHeight: height }"
+    >
   </figure>
 </template>
 
@@ -24,10 +41,15 @@ const props = withDefaults(defineProps<{
   to?: RouteRecord | string;
   width?: string;
   height?: string;
+  // custom lazyload
+  lazy?: boolean;
+  lazyClassName?: string;
 }>(), {
   to: '',
   width: '440px',
-  height: '280px'
+  height: '280px',
+  lazy: false,
+  lazyClassName: ''
 })
 
 const { width, height } = props

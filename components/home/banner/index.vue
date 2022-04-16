@@ -5,9 +5,14 @@
         :modules="modules"
         effect="fade"
         :loop="true"
-        :lazy="true"
+        :lazy="{
+          enable: true,
+          checkInView: true,
+          loadOnTransitionStart: true
+        }"
+        :preload-images="false"
         :autoplay="true"
-        :pagination="pagination"
+        :pagination="{ clickable: true }"
       >
         <swiper-slide
           v-for="item in records"
@@ -38,12 +43,17 @@
                 </nuxt-link>
               </div>
             </div>
-            <CommonCoverPic
-              :url="item.coverPic"
-              :to="`/posts/${item.id}`"
-              width="4.4rem"
-              height="2.8rem"
-            />
+            <div class="cover">
+              <CommonCoverPic
+                :url="item.coverPic"
+                :to="`/posts/${item.id}`"
+                :lazy="true"
+                lazy-class-name="swiper-lazy"
+                width="4.4rem"
+                height="2.8rem"
+              />
+              <div class="swiper-lazy-preloader swiper-lazy-preloader-white" />
+            </div>
           </article>
         </swiper-slide>
       </swiper>
@@ -56,14 +66,13 @@
 <script setup lang="ts">
 import { Pagination, EffectFade, Lazy, Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { PaginationOptions } from 'swiper/types'
 import { POSTS_RECOMMENDED } from '~~/config/api'
 import { PageResponseType, PostItem } from '~~/types/response'
 
-import 'swiper/css'
-import 'swiper/scss/effect-fade'
-import 'swiper/css/pagination'
-import 'swiper/css/lazy'
+// import 'swiper/css'
+// import 'swiper/scss/effect-fade'
+// import 'swiper/css/pagination'
+// import 'swiper/css/lazy'
 
 const { data, pending } = await useCustomFetch<PageResponseType<PostItem>>(POSTS_RECOMMENDED, {
   params: {
@@ -73,11 +82,6 @@ const { data, pending } = await useCustomFetch<PageResponseType<PostItem>>(POSTS
 })
 
 const records = computed(() => data.value.records)
-
-const pagination = ref<PaginationOptions>({
-  // el: '.banner-pagination',
-  clickable: true
-})
 
 const modules = [Pagination, EffectFade, Lazy, Autoplay]
 </script>
@@ -141,6 +145,11 @@ const modules = [Pagination, EffectFade, Lazy, Autoplay]
           background-color: var(--brand-color);
         }
       }
+    }
+
+    .cover {
+      width: 4.4rem;
+      height: 2.8rem;
     }
   }
 
