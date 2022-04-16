@@ -25,6 +25,8 @@
       <LayoutFooter />
     </div>
 
+    <CommonBackTop />
+
     <div class="posts-layout-toc" :class="{ visible: menuVisible }">
       <slot name="toc" />
     </div>

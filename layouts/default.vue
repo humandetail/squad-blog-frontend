@@ -5,6 +5,8 @@
     <LayoutContainer>
       <slot />
     </LayoutContainer>
+
+    <CommonBackTop />
   </main>
 
   <LayoutFooter />
