@@ -74,10 +74,10 @@ const { data, pending } = await useCustomFetch<PageResponseType<PostItem>>(POSTS
 
 const records = computed(() => data.value.records)
 
-const pagination: PaginationOptions = {
-  el: '.banner-pagination',
+const pagination = ref<PaginationOptions>({
+  // el: '.banner-pagination',
   clickable: true
-}
+})
 
 const modules = [Pagination, EffectFade, Lazy, Autoplay]
 </script>
@@ -87,7 +87,7 @@ const modules = [Pagination, EffectFade, Lazy, Autoplay]
 
 .banner {
   margin: .48rem 0;
-  height: 3.2rem;
+  height: 2.8rem;
 
   .post-item {
     display: flex;
@@ -162,21 +162,17 @@ const modules = [Pagination, EffectFade, Lazy, Autoplay]
         }
       }
     }
-  }
 
-  .banner-pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .swiper-pagination {
+      .swiper-pagination-bullet {
+        width: .1rem;
+        height: .1rem;
+        background-color: var(--secondary-text);
 
-    ::v-deep(.swiper-pagination-bullet) {
-      width: .1rem;
-      height: .1rem;
-      background-color: var(--secondary-text);
-
-      &.swiper-pagination-bullet-active {
-        background-color: var(--primary-text);
-        box-shadow: var(--banner-bullte-box-shadow);
+        &.swiper-pagination-bullet-active {
+          background-color: var(--primary-text);
+          box-shadow: var(--banner-bullte-box-shadow);
+        }
       }
     }
   }
