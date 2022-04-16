@@ -16,7 +16,7 @@ import MarkdownItContainer from 'markdown-it-container'
 // import MarkdownItGraphviz from 'markdown-it-graphviz'
 // import MarkdownItLatex from 'markdown-it-latex'
 
-import 'markdown-it-latex/dist/index.css'
+// import 'markdown-it-latex/dist/index.css'
 
 const createCodeCopyIcon = (str: string) => `<span class="copy iconfont icon-file-copy" data-source="${markdown.utils.escapeHtml(str)}" title="复制代码"></span>`
 
