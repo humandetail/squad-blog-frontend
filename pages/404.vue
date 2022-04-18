@@ -87,6 +87,11 @@
 definePageMeta({
   layout: false
 })
+const settings = useSettings()
+
+useHead({
+  title: `PAGE NOT FOUND - ${settings.value.seoTitle}`
+})
 </script>
 
 <style lang="scss" scoped>

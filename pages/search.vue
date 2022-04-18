@@ -33,6 +33,11 @@ import { PageResponseType, PostItem } from '~~/types/response'
 definePageMeta({
   layout: 'default'
 })
+const settings = useSettings()
+
+useHead({
+  title: `搜索 - ${settings.value.seoTitle}`
+})
 
 const records = ref<PostItem[]>([])
 const keyword = ref()

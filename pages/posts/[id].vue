@@ -60,6 +60,7 @@ useCodeCopy()
 
 const { $markdownRender } = useNuxtApp()
 const route = useRoute()
+const settings = useSettings()
 
 const content = ref('')
 const toc = ref('')
@@ -96,6 +97,14 @@ const routes = computed<BreadcrumbRoute[]>(() => {
     {
       name: '正文'
     }
+  ]
+})
+
+useHead({
+  title: `${post.value.seoTitle ? post.value.seoTitle : post.value.title} - ${settings.value.seoTitle}`,
+  meta: [
+    { name: 'keyword', content: `${post.value.seoKeywords ? post.value.seoKeywords + ',' : ''}${settings.value.seoKeywords}` },
+    { name: 'descriptions', content: `${post.value.seoDescription ? post.value.seoDescription + ',' : ''}${settings.value.seoDescription}` }
   ]
 })
 

@@ -21,6 +21,11 @@ import { ABOUT_US } from '~~/config/api'
 import { PersonalItem, AboutUsData } from '~~/types/response'
 
 const personalInfo = ref<PersonalItem>()
+const settings = useSettings()
+
+useHead({
+  title: `关于我 - ${settings.value.seoTitle}`
+})
 
 const { data, pending } = await useCustomFetch<AboutUsData>(ABOUT_US)
 
