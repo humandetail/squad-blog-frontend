@@ -63,6 +63,10 @@ const handleMouseLeave = () => {
       font-weight: 700;
       line-height: .64rem;
       color: var(--primary-text);
+
+      &:hover {
+        color: var(--brand-color);
+      }
     }
 
     .router-link-exact-active {

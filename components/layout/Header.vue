@@ -19,6 +19,9 @@
 
 <style lang="scss" scoped>
 .page-header {
+  position: sticky;
+  top: 0;
+  z-index: 9;
   background-color: var(--plain-color);
   box-shadow: var(--box-shadow);
 
