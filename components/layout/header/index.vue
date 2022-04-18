@@ -7,7 +7,7 @@
       </div>
       <div class="fluid right-fluid">
         <LayoutHeaderSearch />
-        <LayoutHeaderMode />
+        <LayoutHeaderThemeMode />
 
         <slot />
       </div>
