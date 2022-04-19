@@ -19,6 +19,7 @@
 </template>
 
 <script setup lang="ts">
+const route = useRoute()
 const headerDropdown = useHeaderDropdown()
 
 const handleWindowScroll = () => {
@@ -36,6 +37,10 @@ const handleMouseLeave = () => {
 
   window.removeEventListener('scroll', handleWindowScroll, false)
 }
+
+watch(route, () => {
+  headerDropdown.value = false
+}, { immediate: true })
 </script>
 
 <style lang="scss" scoped>

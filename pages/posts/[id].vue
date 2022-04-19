@@ -55,7 +55,18 @@ import { BreadcrumbRoute } from '~~/types'
 import { PostDetail } from '~~/types/response'
 
 definePageMeta({
-  layout: false
+  layout: false,
+  key: route => 'posts-' + route.params.id,
+  pageTransition: {
+    duration: 500,
+    enterActiveClass: 'animate__animated animate__rollIn',
+    leaveActiveClass: 'animate__animated animate__zoomOutDown'
+  },
+  layoutTransition: {
+    duration: 500,
+    enterActiveClass: 'animate__animated animate__zoomInUp',
+    leaveActiveClass: 'animate__animated animate__zoomOutDown'
+  }
 })
 
 usePostHighlightTheme()
@@ -102,6 +113,11 @@ useHead({
       rel: 'stylesheet',
       href: post.value.template
     }
+  ],
+  title: `${post.value.seoTitle ? post.value.seoTitle : post.value.title} - ${settings.value.seoTitle}`,
+  meta: [
+    { name: 'keyword', content: `${post.value.seoKeywords ? post.value.seoKeywords + ',' : ''}${settings.value.seoKeywords}` },
+    { name: 'description', content: `${post.value.seoDescription ? post.value.seoDescription + ',' : ''}${settings.value.seoDescription}` }
   ]
 })
 
@@ -117,14 +133,6 @@ const routes = computed<BreadcrumbRoute[]>(() => {
     {
       name: '正文'
     }
-  ]
-})
-
-useHead({
-  title: `${post.value.seoTitle ? post.value.seoTitle : post.value.title} - ${settings.value.seoTitle}`,
-  meta: [
-    { name: 'keyword', content: `${post.value.seoKeywords ? post.value.seoKeywords + ',' : ''}${settings.value.seoKeywords}` },
-    { name: 'description', content: `${post.value.seoDescription ? post.value.seoDescription + ',' : ''}${settings.value.seoDescription}` }
   ]
 })
 </script>

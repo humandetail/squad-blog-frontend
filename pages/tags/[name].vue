@@ -18,6 +18,20 @@
 import { TAGS } from '~~/config/api'
 import { PageResponseType, TagsData } from '~~/types/response'
 
+definePageMeta({
+  key: route => 'tags-' + route.params.name,
+  pageTransition: {
+    duration: 500,
+    enterActiveClass: 'animate__animated animate__rollIn',
+    leaveActiveClass: 'animate__animated animate__zoomOutDown'
+  },
+  layoutTransition: {
+    duration: 500,
+    enterActiveClass: 'animate__animated animate__zoomInUp',
+    leaveActiveClass: 'animate__animated animate__zoomOutDown'
+  }
+})
+
 const route = useRoute()
 const tags = useTags()
 const settings = useSettings()

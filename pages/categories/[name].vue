@@ -18,6 +18,20 @@
 import { CATEGORIES } from '~~/config/api'
 import { CategoriesData, PageResponseType } from '~~/types/response'
 
+definePageMeta({
+  key: route => 'categories-' + route.params.name,
+  pageTransition: {
+    duration: 500,
+    enterActiveClass: 'animate__animated animate__rollIn',
+    leaveActiveClass: 'animate__animated animate__zoomOutDown'
+  },
+  layoutTransition: {
+    duration: 500,
+    enterActiveClass: 'animate__animated animate__zoomInUp',
+    leaveActiveClass: 'animate__animated animate__zoomOutDown'
+  }
+})
+
 const route = useRoute()
 const categories = useCategories()
 const settings = useSettings()

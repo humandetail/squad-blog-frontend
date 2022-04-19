@@ -20,6 +20,20 @@
 import { ABOUT_US } from '~~/config/api'
 import { PersonalItem, AboutUsData } from '~~/types/response'
 
+definePageMeta({
+  key: 'about',
+  pageTransition: {
+    duration: 500,
+    enterActiveClass: 'animate__animated animate__rollIn',
+    leaveActiveClass: 'animate__animated animate__zoomOutDown'
+  },
+  layoutTransition: {
+    duration: 500,
+    enterActiveClass: 'animate__animated animate__zoomInUp',
+    leaveActiveClass: 'animate__animated animate__zoomOutDown'
+  }
+})
+
 const personalInfo = ref<PersonalItem>()
 const settings = useSettings()
 

@@ -31,8 +31,19 @@ import { PaginationChangeType } from '~~/types/pagination'
 import { PageResponseType, PostItem } from '~~/types/response'
 
 definePageMeta({
-  layout: 'default'
+  key: 'search',
+  pageTransition: {
+    duration: 500,
+    enterActiveClass: 'animate__animated animate__rollIn',
+    leaveActiveClass: 'animate__animated animate__zoomOutDown'
+  },
+  layoutTransition: {
+    duration: 500,
+    enterActiveClass: 'animate__animated animate__zoomInUp',
+    leaveActiveClass: 'animate__animated animate__zoomOutDown'
+  }
 })
+
 const settings = useSettings()
 
 useHead({
