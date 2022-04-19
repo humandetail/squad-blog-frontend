@@ -3,7 +3,7 @@ import hljs from 'highlight.js'
 import uslug from 'uslug'
 import MarkdownItAnchor from 'markdown-it-anchor'
 import MarkdownItTocDoneRight from 'markdown-it-toc-done-right'
-import MarkdownItEmoji from 'markdown-it-emoji'
+// import MarkdownItEmoji from 'markdown-it-emoji'
 import MarkdownItSup from 'markdown-it-sup'
 import MarkdownItSub from 'markdown-it-sub'
 import MarkdownItDeflist from 'markdown-it-deflist'
@@ -124,7 +124,7 @@ markdown
     slugify: uslugify
   })
   // emoji表情
-  .use(MarkdownItEmoji)
+  // .use(MarkdownItEmoji)
   // 上标
   .use(MarkdownItSup)
   // 下标

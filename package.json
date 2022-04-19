@@ -26,6 +26,7 @@
     "husky": "^7.0.0",
     "lint-staged": "^12.3.7",
     "nuxt3": "latest",
+    "rollup-plugin-external-globals": "^0.6.1",
     "sass": "^1.49.11",
     "typescript": "^4.6.3"
   },
@@ -38,13 +39,12 @@
     }
   },
   "dependencies": {
-    "highlight.js": "^11.5.0",
+    "highlight.js": "^11.5.1",
     "markdown-it": "^12.3.2",
     "markdown-it-abbr": "^1.0.4",
     "markdown-it-anchor": "^8.5.0",
     "markdown-it-container": "^3.0.0",
     "markdown-it-deflist": "^2.1.0",
-    "markdown-it-emoji": "^2.0.0",
     "markdown-it-footnote": "^3.0.3",
     "markdown-it-graphviz": "^1.1.2",
     "markdown-it-ins": "^3.0.1",

@@ -6,7 +6,9 @@
 
     <CommonLoading :loading="pending">
       <div class="posts-page">
-        <article class="post-container">
+        <SkeletonPostsContent v-if="!isMounted" />
+
+        <article v-else class="post-container">
           <h1 class="title">
             {{ post.title }}
           </h1>
@@ -37,7 +39,8 @@
 
     <template #toc>
       <CommonLoading :loading="pending">
-        <section class="post-toc-wrapper">
+        <SkeletonPostsTOC v-if="!isMounted" />
+        <section v-else class="post-toc-wrapper">
           <header>大纲</header>
           <div class="toc" v-html="toc" />
         </section>
@@ -62,9 +65,6 @@ const { $markdownRender } = useNuxtApp()
 const route = useRoute()
 const settings = useSettings()
 
-const content = ref('')
-const toc = ref('')
-
 const id = route.params.id
 
 const { data, pending } = await useCustomFetch<PostDetail>(POSTS_DETAIL, {
@@ -74,6 +74,10 @@ const { data, pending } = await useCustomFetch<PostDetail>(POSTS_DETAIL, {
 const post = computed(() => data.value.post)
 const prev = computed(() => data.value.prev || null)
 const next = computed(() => data.value.next || null)
+
+const content = ref(post.value.content || '')
+const toc = ref('')
+const isMounted = ref(false)
 
 // 引入模板
 useHead({
@@ -108,9 +112,9 @@ useHead({
   ]
 })
 
-watch(post, (newValue) => {
-  if (newValue.content) {
-    const HTMLString = $markdownRender(`[TOC]\n${newValue.content}`)
+onMounted(() => {
+  if (post.value.content) {
+    const HTMLString = $markdownRender(`[TOC]\n${post.value.content}`)
     const reg = /<nav class="table-of-contents">.*?<\/nav>/
 
     const result = HTMLString.match(reg)
@@ -120,7 +124,8 @@ watch(post, (newValue) => {
       content.value = HTMLString.replace(reg, '')
     }
   }
-}, { immediate: true })
+  isMounted.value = true
+})
 </script>
 
 <style lang="scss">
