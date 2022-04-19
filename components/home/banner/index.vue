@@ -46,6 +46,7 @@
             <div class="cover">
               <CommonCoverPic
                 :url="item.coverPic"
+                :alt="item.title"
                 :to="`/posts/${item.id}`"
                 :lazy="true"
                 lazy-class-name="swiper-lazy"

@@ -2,6 +2,7 @@
   <article class="item">
     <CommonCoverPic
       :url="record.coverPic"
+      :alt="record.title"
       :to="postLink"
       width="4.08rem"
       height="2.6rem"

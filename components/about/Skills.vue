@@ -15,6 +15,7 @@
         <div class="info">
           <CommonCoverPic
             :url="item.icon"
+            :alt="item.name"
             width="0.64rem"
             height="0.64rem"
           />
@@ -32,6 +33,7 @@
       <li class="item plain">
         <CommonCoverPic
           url="/youseeseeyou.jpg"
+          alt="youseeseeyou"
           width="2rem"
           height="2rem"
         />

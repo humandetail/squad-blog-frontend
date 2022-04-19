@@ -32,6 +32,10 @@ const markdown = new MarkdownIt({
     if (!hljs) {
       return str
     }
+    // fix: ts
+    if (lang === 'ts') {
+      lang = 'typescript'
+    }
     if (lang && hljs.getLanguage(lang)) {
       try {
         return `<pre class="hljs"><div class="extra"><span class="lang">${lang}</span>${createCodeCopyIcon(str)}</div><code>${hljs.highlight(str, { language: lang, ignoreIllegals: true }).value}</code></pre>`
@@ -87,6 +91,12 @@ markdown.renderer.rules.heading_open = function (tokens, idx, options, _env, sel
     })
     return self.renderToken(tokens, idx, options)
   }
+}
+
+markdown.renderer.rules.image = function (tokens, idx, options, _env, self) {
+  tokens[idx].attrs[1][1] = tokens[idx].content
+  tokens[idx].attrPush(['onclick', `window.open('${tokens[idx].attrs[0][1]}', '_blank')`])
+  return self.renderToken(tokens, idx, options)
 }
 
 // add target="_blank" to all link

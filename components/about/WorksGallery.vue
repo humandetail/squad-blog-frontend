@@ -16,6 +16,7 @@
       >
         <CommonCoverPic
           :url="item.url"
+          :alt="item.name"
           :lazy="true"
           lazy-class-name="swiper-lazy"
           width="4.8rem"

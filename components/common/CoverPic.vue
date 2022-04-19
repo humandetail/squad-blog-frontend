@@ -10,11 +10,13 @@
         :class="lazyClassName"
         :data-src="url"
         :style="{ maxWidth: width, maxHeight: height }"
+        :alt="alt"
       >
       <img
         v-else
         v-lazy="url"
         :style="{ maxWidth: width, maxHeight: height }"
+        :alt="alt"
       >
     </figure>
   </nuxt-link>
@@ -24,11 +26,13 @@
       :class="lazyClassName"
       :data-src="url"
       :style="{ maxWidth: width, maxHeight: height }"
+      :alt="alt"
     >
     <img
       v-else
       v-lazy="url"
       :style="{ maxWidth: width, maxHeight: height }"
+      :alt="alt"
     >
   </figure>
 </template>
@@ -44,12 +48,14 @@ const props = withDefaults(defineProps<{
   // custom lazyload
   lazy?: boolean;
   lazyClassName?: string;
+  alt?: string;
 }>(), {
   to: '',
   width: '440px',
   height: '280px',
   lazy: false,
-  lazyClassName: ''
+  lazyClassName: '',
+  alt: ''
 })
 
 const { width, height } = props

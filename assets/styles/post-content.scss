@@ -152,10 +152,13 @@
   }
   
   img {
+    width: auto;
     max-width: 100%;
+    margin: 0 auto;
     box-sizing: content-box;
     border-style: none;
     background-color: var(--squad-plain-color);
+    box-shadow: 0 0 5px var(--squad-border-color);
 
     &[align=right] {
       padding-left: 24px;

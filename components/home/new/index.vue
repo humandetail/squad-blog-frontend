@@ -34,6 +34,7 @@
             <div class="content">
               <CommonCoverPic
                 :url="item.coverPic"
+                :alt="item.title"
                 :to="`/posts/${item.id}`"
                 width="2.21rem"
                 height="1.4rem"
