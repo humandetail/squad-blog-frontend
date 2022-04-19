@@ -10,6 +10,7 @@
         <SearchTips
           v-if="alreadySearch"
           :keyword="keyword"
+          :fixed-keyword="fixedKeyword"
           :total="pagination.total.value"
         />
         <SearchSuggestion
@@ -52,6 +53,7 @@ useHead({
 
 const records = ref<PostItem[]>([])
 const keyword = ref()
+const fixedKeyword = ref('')
 const alreadySearch = ref(false)
 const loading = ref(false)
 
@@ -85,6 +87,7 @@ const handleSearch = () => {
     records.value = []
     return
   }
+  fixedKeyword.value = keyword.value
   onPaginationChange({ currentPage: 1, currentPageSize: 10 })
 }
 </script>

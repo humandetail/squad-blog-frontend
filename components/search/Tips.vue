@@ -8,7 +8,7 @@
       </span>
       与“
       <span class="keyword">
-        {{ keyword }}
+        {{ fixedKeyword }}
       </span>
       ”相关的内容。
     </div>
@@ -16,7 +16,7 @@
     <div v-else class="no-results">
       抱歉没有找到与“
       <span class="keyword">
-        {{ keyword }}
+        {{ fixedKeyword }}
       </span>
       ”相关的内容。
     </div>
@@ -26,6 +26,7 @@
 <script setup lang="ts">
 defineProps<{
   keyword: string;
+  fixedKeyword: string;
   total: number;
 }>()
 </script>
