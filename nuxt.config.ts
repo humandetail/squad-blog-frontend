@@ -36,22 +36,16 @@ export default defineNuxtConfig({
     '@/assets/iconfont/iconfont.css'
   ],
 
-  router: {
-    scrollBehavior: (_to, _from, _savedPosition) => {
-      return { x: 0, y: 0 }
-    }
-  },
-
   vite: {
     build: {
       rollupOptions: {
-        external: ['highlight.js', 'Swiper', 'uslug', 'markdown-it'],
+        external: ['highlight.js', 'Swiper', 'markdownit'],
         plugins: [
           externalGlobals({
             'highlight.js': 'hljs',
             Swiper: 'swiper',
             // uslug: 'uslug',
-            'markdown-it': 'MarkdownIt'
+            markdownit: 'MarkdownIt'
           })
         ]
       }
