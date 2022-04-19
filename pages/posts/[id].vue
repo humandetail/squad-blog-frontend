@@ -65,6 +65,22 @@ const { $markdownRender } = useNuxtApp()
 const route = useRoute()
 const settings = useSettings()
 
+// lifecycle hooks must before the first await statement.
+onMounted(() => {
+  if (post.value.content) {
+    const HTMLString = $markdownRender(`[TOC]\n${post.value.content}`)
+    const reg = /<nav class="table-of-contents">.*?<\/nav>/
+
+    const result = HTMLString.match(reg)
+
+    if (result) {
+      toc.value = result[0]
+      content.value = HTMLString.replace(reg, '')
+    }
+  }
+  isMounted.value = true
+})
+
 const id = route.params.id
 
 const { data, pending } = await useCustomFetch<PostDetail>(POSTS_DETAIL, {
@@ -110,21 +126,6 @@ useHead({
     { name: 'keyword', content: `${post.value.seoKeywords ? post.value.seoKeywords + ',' : ''}${settings.value.seoKeywords}` },
     { name: 'description', content: `${post.value.seoDescription ? post.value.seoDescription + ',' : ''}${settings.value.seoDescription}` }
   ]
-})
-
-onMounted(() => {
-  if (post.value.content) {
-    const HTMLString = $markdownRender(`[TOC]\n${post.value.content}`)
-    const reg = /<nav class="table-of-contents">.*?<\/nav>/
-
-    const result = HTMLString.match(reg)
-
-    if (result) {
-      toc.value = result[0]
-      content.value = HTMLString.replace(reg, '')
-    }
-  }
-  isMounted.value = true
 })
 </script>
 

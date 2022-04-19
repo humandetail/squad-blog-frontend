@@ -2,6 +2,15 @@ import { renderCopySuccess } from '~~/libs/utils'
 
 export default () => {
   const { copy, copied, isSupported } = useClipboard()
+
+  onMounted(() => {
+    document.addEventListener('click', handleClick, false)
+  })
+
+  onBeforeUnmount(() => {
+    document.removeEventListener('click', handleClick, false)
+  })
+
   const handleClick = async (e: MouseEvent) => {
     const target = e.target as HTMLElement
 
@@ -25,12 +34,4 @@ export default () => {
       }
     }
   }
-
-  onMounted(() => {
-    document.addEventListener('click', handleClick, false)
-  })
-
-  onBeforeUnmount(() => {
-    document.removeEventListener('click', handleClick, false)
-  })
 }
