@@ -2,7 +2,7 @@ interface BaseResponseType {
   createdTime: Date;
   updatedTime: Date;
 }
-export type WebSiteStatusType = 0 | 1 | 2;
+export type WebSiteStatusType = 0 | 1 | 2 | 3;
 
 export type TagItem = {
   name: string;

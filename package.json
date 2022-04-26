@@ -54,6 +54,7 @@
     "markdown-it-sup": "^1.0.0",
     "markdown-it-task-lists": "^2.1.1",
     "markdown-it-toc-done-right": "^4.2.0",
+    "mobile-detect": "^1.4.5",
     "swiper": "^8.0.7",
     "uslug": "^1.0.4",
     "vue3-lazyload": "^0.2.5-beta"
