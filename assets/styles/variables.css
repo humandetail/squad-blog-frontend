@@ -1,0 +1,4 @@
+:root {
+  --container-width: 1920px; /*！ 容器最大宽度 */
+  --gap: 16px;
+}
