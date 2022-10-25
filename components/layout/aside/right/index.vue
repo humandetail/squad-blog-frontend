@@ -1,10 +1,15 @@
 <template>
   <aside class="page-aside-right">
-    Right
+    <LayoutAsideRightSearch v-if="route.name !== 'search'" />
+
+    <LayoutAsideRightRecommended />
+
+    <LayoutAsideRightTags />
   </aside>
 </template>
 
 <script setup lang="ts">
+const route = useRoute()
 </script>
 
 <style lang="scss" scoped>

@@ -21,6 +21,7 @@
   max-width: var(--container-width);
   height: 90vh;
   margin: 10vh auto;
+  overflow: hidden;
   // padding: 0 var(--gap);
 
   .page-aside-header {
@@ -34,6 +35,7 @@
     gap: var(--gap);
     grid-column: 5 / 24;
     grid-row: 1 / 22;
+    overflow: hidden;
   }
 
   .page-footer {

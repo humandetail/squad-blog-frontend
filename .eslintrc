@@ -1,12 +1,12 @@
 {
   "root": true,
   "env": {
-      "browser": true,
-      "node": true
+    "browser": true,
+    "node": true
   },
   "extends": [
-      "@nuxtjs/eslint-config-typescript",
-      "plugin:nuxt/recommended"
+    "@nuxtjs/eslint-config-typescript",
+    "plugin:nuxt/recommended"
   ],
   "plugins": [],
   "rules": {

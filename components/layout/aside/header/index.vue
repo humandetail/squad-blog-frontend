@@ -1,6 +1,10 @@
 <template>
   <header class="page-aside-header">
-    Left
+    <LayoutAsideHeaderSite />
+
+    <LayoutAsideHeaderNav />
+
+    <LayoutAsideHeaderBlogrolls />
   </header>
 </template>
 

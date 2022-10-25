@@ -7,5 +7,6 @@
 <style lang="scss" scoped>
 .main-wrapper {
   background-color: rgba(0,0,0,.5);
+  overflow: hidden;
 }
 </style>

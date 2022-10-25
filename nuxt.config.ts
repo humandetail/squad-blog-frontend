@@ -8,11 +8,17 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/eslint-module'],
 
   publicRuntimeConfig: {
-    API_BASE_URL: 'http://localhost:7001/api/frontend-service'
+    API_BASE_URL: 'https://api.humandetail.com/api/frontend-service'
   },
 
   css: [
     '@/assets/styles/variables.css',
     '@/assets/styles/reset.scss'
-  ]
+  ],
+
+  meta: {
+    script: [
+      { type: 'text/javascript', src: '/iconfont.js' }
+    ]
+  }
 })
