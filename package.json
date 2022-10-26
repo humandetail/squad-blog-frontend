@@ -31,5 +31,8 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "vue3-lazyload": "^0.3.6"
   }
 }

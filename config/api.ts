@@ -50,7 +50,22 @@ export const getPostsByKeywods = ({
 /**
  * 通过分类名称获取文章列表
  */
-export const getPostCategory = () => useRequest<CategoriesData>(`${PREFIX}/posts/categories`, { key: 'POSTS_CATEGORIES' })
+export const getPostByCategoryName = ({
+  name,
+  current,
+  pageSize
+}: {
+  name: string
+  current: number
+  pageSize: number
+}) => useRequest<PageResponseType<PostItem>>(`${PREFIX}/posts/categories`, {
+  key: `POSTS_CATEGORIES_${name}_${current}_${pageSize}`,
+  params: {
+    name,
+    current,
+    pageSize
+  }
+})
 
 /**
  * 通过标签名称获取文章列表

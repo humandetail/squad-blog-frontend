@@ -1,6 +1,6 @@
 interface BaseResponseType {
-  createdTime: Date;
-  updatedTime: Date;
+  createdTime: string;
+  updatedTime: string;
 }
 export type WebSiteStatusType = 0 | 1 | 2 | 3;
 
@@ -106,13 +106,14 @@ export interface PostItem extends BaseResponseType {
   summary: string;
   tags: Array<TagItem>
 }
+export type PostItemType = PostItem
 
 export interface PostData {
   author: string;
   category: CategoryItem;
   content: string;
   coverPic: string;
-  createdTime: Date;
+  createdTime: string;
   id: string;
   recommendationIndex: number;
   seoDescription: string;
@@ -124,7 +125,7 @@ export interface PostData {
   template: string;
   title: string;
   viewCount: number;
-  updatedTime: Date;
+  updatedTime: string;
 }
 
 export interface PostDetail {
