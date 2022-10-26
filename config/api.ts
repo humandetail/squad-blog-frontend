@@ -70,7 +70,22 @@ export const getPostByCategoryName = ({
 /**
  * 通过标签名称获取文章列表
  */
-export const getPostTags = () => useRequest<TagsData>(`${PREFIX}/posts/tags`, { key: 'POSTS_TAGS' })
+export const getPostByTagName = ({
+  name,
+  current,
+  pageSize
+}: {
+  name: string
+  current: number
+  pageSize: number
+}) => useRequest<PageResponseType<PostItem>>(`${PREFIX}/posts/tags`, {
+  key: `POSTS_TAGS_${name}_${current}_${pageSize}`,
+  params: {
+    name,
+    current,
+    pageSize
+  }
+})
 
 /**
  * 获取推荐文章列表
