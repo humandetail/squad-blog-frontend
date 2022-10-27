@@ -107,6 +107,6 @@ export const getNewPosts = () => useRequest<PostData[]>(`${PREFIX}/posts/new`, {
  * 获取文章详情
  */
 export const getPostDetail = (id: string) => useRequest<PostDetail>(`${PREFIX}/posts/detail`, {
-  key: 'POSTS_DETAIL',
+  key: `POSTS_DETAIL_${id}`,
   params: { id }
 })
