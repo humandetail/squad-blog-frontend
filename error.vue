@@ -1,11 +1,9 @@
 <template>
-  <div class="page-not-found">
-    404 Page Not Found
-    {{ error.data }}
-  </div>
+  <Page404 />
 </template>
 
 <script setup lang="ts">
+import Page404 from '~~/pages/404.vue'
 defineProps<{
   error: any
 }>()
