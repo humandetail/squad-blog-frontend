@@ -1,6 +1,7 @@
 <template>
   <div class="page-home">
-    Home Page
+    <HomeBanner />
+    <HomeNew />
   </div>
 </template>
 

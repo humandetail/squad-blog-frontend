@@ -1,4 +1,4 @@
-import { AboutUsData, BlogrollsData, CategoriesData, PageResponseType, PostData, PostDetail, PostItem, Settings, TagsData } from '~~/types/response'
+import { AboutUsData, BlogrollsData, CategoriesData, PageResponseType, PostDetail, PostItem, Settings, TagsData } from '~~/types/response'
 
 const PREFIX = '/api'
 
@@ -91,7 +91,7 @@ export const getPostByTagName = ({
  * 获取推荐文章列表
  */
 export const getRecommendedPosts = (current: number, pageSize: number) => useRequest<PageResponseType<PostItem>>(`${PREFIX}/posts/recommended`, {
-  key: 'POSTS_RECOMMENDED',
+  key: `POSTS_RECOMMENDED_${current}_${pageSize}`,
   params: {
     current,
     pageSize
@@ -101,7 +101,7 @@ export const getRecommendedPosts = (current: number, pageSize: number) => useReq
 /**
  * 获取最新文章列表
  */
-export const getNewPosts = () => useRequest<PostData[]>(`${PREFIX}/posts/new`, { key: 'POSTS_NEW' })
+export const getNewPosts = () => useRequest<PageResponseType<PostItem>>(`${PREFIX}/posts/new`, { key: 'POSTS_NEW' })
 
 /**
  * 获取文章详情
