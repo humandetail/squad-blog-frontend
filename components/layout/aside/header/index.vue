@@ -1,10 +1,12 @@
 <template>
   <header class="page-aside-header">
-    <LayoutAsideHeaderSite />
+    <div class="wrapper">
+      <LayoutAsideHeaderSite />
 
-    <LayoutAsideHeaderNav />
+      <LayoutAsideHeaderNav />
 
-    <LayoutAsideHeaderBlogrolls />
+      <LayoutAsideHeaderBlogrolls />
+    </div>
   </header>
 </template>
 
@@ -13,6 +15,29 @@
 
 <style lang="scss" scoped>
 .page-aside-header {
-  background-color: rgba(0,0,0,.1);
+  padding: var(--gap24);
+  overflow: hidden;
+
+  @media screen and (max-width: 1440px) {
+    overflow: unset;
+  }
+
+  .wrapper {
+    height: 100%;
+    padding: var(--gap24);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow-y: auto;
+
+    @media screen and (max-width: 1440px) {
+      display: flex;
+      align-items: center;
+      // justify-content: space-between;
+      gap: var(--gap16);
+      position: relative;
+      padding: var(--gap16) 48px var(--gap16) var(--gap16);
+      overflow-y: unset;
+    }
+  }
 }
 </style>

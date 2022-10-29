@@ -1,10 +1,12 @@
 <template>
   <aside class="page-aside-right">
-    <LayoutAsideRightSearch v-if="route.name !== 'search'" />
+    <div class="wrapper">
+      <LayoutAsideRightSearch v-if="route.name !== 'search'" />
 
-    <LayoutAsideRightRecommended />
+      <LayoutAsideRightRecommended />
 
-    <LayoutAsideRightTags />
+      <LayoutAsideRightTags />
+    </div>
   </aside>
 </template>
 
@@ -14,6 +16,15 @@ const route = useRoute()
 
 <style lang="scss" scoped>
 .page-aside-right {
-  background-color: rgba(0,0,0,.3);
+  padding: var(--gap24);
+  overflow: hidden;
+
+  .wrapper {
+    height: 100%;
+    padding: var(--gap24);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow-y: auto;
+  }
 }
 </style>

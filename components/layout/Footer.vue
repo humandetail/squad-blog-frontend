@@ -27,7 +27,22 @@
 </script>
 
 <style lang="scss" scoped>
-.page-footer {
-  background-color: rgba(0,0,0,.2);
+.copyright-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap16);
+  height: 100%;
+  line-height: 1.1;
+  color: var(--secondary-text);
+
+  @media screen and (max-width: 640px) {
+    font-size: 10px;
+    line-height: 1.2;
+  }
+
+  .icp a {
+    color: var(--secondary-text)
+  }
 }
 </style>

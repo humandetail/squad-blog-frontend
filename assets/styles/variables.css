@@ -1,4 +1,28 @@
 :root {
   --container-width: 1920px; /*！ 容器最大宽度 */
-  --gap: 16px;
+  --gap8: 8px;
+  --gap16: 16px;
+  --gap24: 24px;
+  --gap32: 32px;
+
+  --border-radius: 16px;
+  --border-radius2: 24px;
+
+  --brand-color: #3e77e9;
+  --success-color: #4fc775;
+  --danger-color: #ff5952;
+  --warning-color: #ffd656;
+  --purple-color: #644ca2;
+
+  --box-shadow: -8px -8px 16px var(--shadow-color-light), 8px 8px 16px var(--shadow-color-dark);
+  --box-shadow-reverse: -8px -8px 16px var(--shadow-color-light) inset, 8px 8px 16px var(--shadow-color-dark) inset;
+}
+
+@media screen and (max-width: 960px) {
+  :root {
+    --gap8: 4px;
+    --gap16: 8px;
+    --gap24: 16px;
+    --gap32: 24px;
+  }
 }

@@ -8,8 +8,28 @@
   box-sizing: border-box;
   // scrollbar-gutter: stable;
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--shadow-color-dark) var(--background-color);
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--background-color);
+  box-shadow: -1px -1px 2px var(--shadow-color-light) inset, 1px 1px 2px var(--shadow-color-dark) inset;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+  margin: 1px auto;
+  background-color: var(--background-color);
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px var(--shadow-color-light) inset, -1px -1px 2px var(--shadow-color-dark) inset;
+}
+::-webkit-scrollbar-button {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px var(--shadow-color-light) inset, -1px -1px 2px var(--shadow-color-dark) inset;
+}
 
 html,
 body,

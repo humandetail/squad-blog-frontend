@@ -1,12 +1,21 @@
 <template>
   <main class="main-wrapper">
-    <slot />
+    <div class="wrapper">
+      <slot />
+    </div>
   </main>
 </template>
 
 <style lang="scss" scoped>
 .main-wrapper {
-  background-color: rgba(0,0,0,.5);
+  padding: var(--gap24);
   overflow: hidden;
+  .wrapper {
+    height: 100%;
+    padding: var(--gap24);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow-y: auto;
+  }
 }
 </style>

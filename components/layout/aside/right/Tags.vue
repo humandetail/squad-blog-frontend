@@ -41,5 +41,19 @@ if (tags.value.length === 0) {
   tags.value = data.value.records || []
   loading.value = false
 }
-
 </script>
+
+<style lang="scss" scoped>
+.aside-tags {
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 4px 0;
+
+    .tag {
+      color: var(--primary-text);
+    }
+  }
+}
+</style>

@@ -17,69 +17,85 @@
 <style lang="scss" scoped>
 .page-container {
   display: grid;
-  gap: var(--gap);
+  // gap: var(--gap24);
   max-width: var(--container-width);
-  height: 90vh;
-  margin: 10vh auto;
-  overflow: hidden;
-  // padding: 0 var(--gap);
-
-  .page-aside-header {
-    grid-column: 1 / 5;
-    grid-row: 1 / 22;
-  }
+  height: 95%;
+  margin: 2.5% auto;
+  grid-template-columns: 348px calc(100% - 348px);
+  grid-template-rows: calc(100% - 44px) 44px;
 
   .container {
     display: grid;
-    grid-template-columns: auto 300px;
-    gap: var(--gap);
-    grid-column: 5 / 24;
-    grid-row: 1 / 22;
+    grid-template-columns: auto 348px;
     overflow: hidden;
   }
 
   .page-footer {
+    width: 100%;
     grid-column: 1 / 24;
-    grid-row: 22 / 24;
   }
 
   @media screen and (max-width: 1920px) {
-    padding: 0 var(--gap);
+    padding: 0 var(--gap24);
   }
 
   @media screen and (max-width: 1440px) {
-    margin: 2vh auto 0;
-    height: 98vh;
+    margin: 1% auto 0;
+    height: 98%;
 
-    .page-aside-header {
-      grid-column: 1 / 24;
-      grid-row: 1 / 3;
-    }
-
-    .container {
-      grid-column: 1 / 24;
-      grid-row: 3 / 22;
-    }
+    grid-template-columns: 100%;
+    grid-template-rows: 124px calc(100% - 168px) 44px;
 
     .page-footer {
-      grid-column: 1 / 24;
-      grid-row: 22 / 24;
+      grid-column: auto;
     }
   }
 
   @media screen and (max-width: 960px) {
+    margin: 1% auto 0;
+    height: 98%;
+
+    grid-template-columns: 100%;
+    grid-template-rows: 84px calc(100% - 128px) 44px;
+
     .page-aside-header {
-      grid-column: 1 / 24;
-      grid-row: 1 / 3;
+      padding: 0;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      margin-bottom: var(--gap24);
+
+      :deep(.wrapper) {
+        overflow-y: unset;
+        box-shadow: unset;
+      }
+    }
+
+    .page-footer {
+      grid-column: auto;
     }
 
     .container {
       display: block;
-      grid-column: 1 / 24;
-      grid-row: 3 / 22;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      overflow-y: auto;
+
+      .main-wrapper {
+        padding: 0;
+        overflow: unset;
+        :deep(.wrapper) {
+          box-shadow: unset;
+        }
+      }
 
       .page-aside-right {
-        margin-top: var(--gap);
+        padding: 0;
+        overflow: unset;
+        margin-top: var(--gap24);
+
+        :deep(.wrapper) {
+          box-shadow: unset;
+        }
       }
     }
   }
