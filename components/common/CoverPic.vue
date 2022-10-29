@@ -60,3 +60,24 @@ withDefaults(defineProps<{
 
 // const { width, height } = props
 </script>
+
+<style lang="scss" scoped>
+.cover-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--cover-bg);
+  overflow: hidden;
+
+  img {
+    transition: transform ease-in-out .3s;
+    transform-origin: center center;
+  }
+
+  &:hover img {
+    transform: scale(1.5);
+  }
+}
+</style>

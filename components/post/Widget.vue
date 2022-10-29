@@ -29,3 +29,15 @@ defineProps<{
 
 const NuxtLink = resolveComponent('NuxtLink')
 </script>
+
+<style lang="scss" scoped>
+.post-widget {
+  .widget {
+    color: var(--primary-text);
+  }
+
+  .icon {
+    vertical-align: -3px;
+  }
+}
+</style>

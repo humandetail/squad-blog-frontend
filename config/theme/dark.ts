@@ -4,6 +4,8 @@ const dark: Record<string, string> = {
   'secondary-text': '#b1b1b1',
   'gray-text': '#818181',
 
+  'cover-bg': 'rgb(41,41,41)',
+
   'shadow-color-light': '#383838',
   'shadow-color-dark': '#222',
   'shadow-color-radio-drak': 'rgb(27, 28, 31)'

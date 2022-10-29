@@ -66,3 +66,29 @@ const widgets = computed(() => {
   ]
 })
 </script>
+
+<style lang="scss" scoped>
+.item {
+  display: grid;
+  gap: var(--gap16);
+
+  .title {
+    min-width: 0;
+
+    a {
+      display: block;
+    }
+  }
+
+  .summary {
+    min-width: 0;
+  }
+
+  .widgets {
+    display: flex;
+    align-items: center;
+    gap: var(--gap16);
+    min-width: 0;
+  }
+}
+</style>

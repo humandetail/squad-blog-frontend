@@ -3,3 +3,11 @@
   overflow: hidden;
   white-space: nowrap;
 }
+
+@mixin multi-ellipsis ($line) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: #{$line};
+  -webkit-box-orient: vertical;
+}
