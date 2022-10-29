@@ -29,3 +29,15 @@ defineProps<{
   total: number;
 }>()
 </script>
+
+<style lang="scss" scoped>
+.tips {
+  margin-top: var(--gap24);
+  font-size: 14px;
+
+  .keyword {
+    font-weight: 700;
+    color: var(--danger-color);
+  }
+}
+</style>

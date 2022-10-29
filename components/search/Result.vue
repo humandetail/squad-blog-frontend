@@ -1,12 +1,12 @@
 <template>
-  <article class="search-results">
+  <section class="search-results">
     <SearchResultItem
       v-for="record in records"
       :key="record.id"
       :record="record"
       :keyword="keyword"
     />
-  </article>
+  </section>
 </template>
 
 <script setup lang="ts">
@@ -16,3 +16,9 @@ defineProps<{
   keyword: string
 }>()
 </script>
+
+<style lang="scss" scoped>
+.search-results {
+  margin-top: var(--gap24);
+}
+</style>

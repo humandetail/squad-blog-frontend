@@ -1,8 +1,8 @@
 const dark: Record<string, string> = {
   'background-color': 'rgb(43,45,51)',
   'primary-text': '#e1e1e1',
-  'secondary-text': '#c1c1c1',
-  'gray-text': '#a1a1a1',
+  'secondary-text': '#b1b1b1',
+  'gray-text': '#818181',
 
   'shadow-color-light': '#383838',
   'shadow-color-dark': '#222',

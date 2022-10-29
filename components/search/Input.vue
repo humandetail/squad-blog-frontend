@@ -13,7 +13,7 @@
       type="submit"
       class="btn-submit"
       :disabled="loading"
-      @click="$emit('search')"
+      @click="handleSearch"
     >
       <CommonIcon
         v-if="!loading"
@@ -45,12 +45,59 @@ onMounted(() => {
 
 const handleKeydown = (e: KeyboardEvent) => {
   if (e.key === 'Enter' && !props.loading) {
-    router.push({
-      path: '/search',
-      query: {
-        keyword: keyword.value
-      }
-    })
+    handleSearch()
   }
 }
+
+const handleSearch = () => {
+  router.push({
+    path: '/search',
+    query: {
+      keyword: keyword.value
+    }
+  })
+}
 </script>
+
+<style lang="scss" scoped>
+.input-wrapper {
+  display: flex;
+  border-radius: 8px;
+  height: 48px;
+  box-shadow: -2px -2px 4px var(--shadow-color-light) inset, 2px 2px 4px var(--shadow-color-dark) inset;
+
+  .input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    padding: 0 var(--gap16);
+    color: var(--primary-text);
+    font-size: 16px;
+    border: 0;
+    background-color: transparent;
+  }
+
+  .btn-submit {
+    white-space: nowrap;
+    height: 36px;
+    margin: 6px;
+    padding: 0 var(--gap16);
+    color: var(--primary-text);
+    font-size: 16px;
+    border: 0;
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+    box-shadow: -2px -2px 4px var(--shadow-color-light), 2px 2px 4px var(--shadow-color-dark);
+
+    .icon {
+      vertical-align: -3px;
+      font-size: 18px;
+    }
+
+    &:active {
+      box-shadow: -2px -2px 4px var(--shadow-color-light) inset, 2px 2px 4px var(--shadow-color-dark) inset;
+    }
+  }
+}
+</style>

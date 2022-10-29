@@ -161,3 +161,64 @@ function genPage (start: number, end: number) {
   return pages
 }
 </script>
+
+<style lang="scss" scoped>
+.common-pagination-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--gap8);
+  margin-top: var(--gap24);
+
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    height: 32px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 0;
+    background-color: transparent;
+    box-shadow: -1px -1px 2px var(--shadow-color-light), 1px 1px 2px var(--shadow-color-dark);
+
+    &:not(:disabled) {
+      color: var(--primary-text);
+      cursor: pointer;
+    }
+
+    &:disabled {
+      color: var(--gray-text);
+      cursor: not-allowed;
+      box-shadow: unset;
+    }
+
+    &.current {
+      color: var(--brand-color);
+      box-shadow: -1px -1px 2px var(--shadow-color-light) inset, 1px 1px 2px var(--shadow-color-dark) inset;
+    }
+
+    &:active {
+      box-shadow: -1px -1px 2px var(--shadow-color-light) inset, 1px 1px 2px var(--shadow-color-dark) inset;
+    }
+
+    &:hover:not(:disabled) {
+      color: var(--brand-color);
+    }
+  }
+
+  .pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--gap8);
+    height: 32px;
+
+    .btn {
+      width: 32px;
+    }
+  }
+}
+</style>
