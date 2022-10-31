@@ -5,9 +5,8 @@
     class="post-link"
     :class="{ 'is-link': postLink }"
   >
-    <span
-      class="iconfont"
-      :class="`icon-${isPrev ? 'arrow-left' : 'arrow-right'}`"
+    <CommonIcon
+      :icon="isPrev ? 'arrow-left' : 'arrow-right'"
       :style="{ order: isPrev ? 1 : 2 }"
     />
     <span
@@ -34,3 +33,29 @@ const NuxtLink = resolveComponent('nuxt-link')
 
 const link = computed(() => props.postLink ? `/posts/${props.postLink.id}` : undefined)
 </script>
+
+<style lang="scss" scoped>
+@import '~~/assets/styles/mixins.scss';
+
+.post-link {
+  display: flex;
+  align-items: center;
+  gap: var(--gap8);
+  min-width: 0;
+  color: var(--primary-text);
+
+  .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .title {
+    flex: 1;
+    @include ellipsis;
+  }
+
+  &:last-child {
+    text-align: right;
+  }
+}
+</style>

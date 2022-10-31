@@ -38,10 +38,21 @@ const settings = useSettings()
 const mode = useThemeMode()
 
 const handleSwitchMode = () => {
-  mode.value = mode.value === 'dark'
+  const m = mode.value === 'dark'
     ? 'light'
     : 'dark'
+
+  mode.value = m
+
+  localStorage.setItem('HUMANDETAIL_THEME', m)
 }
+
+onMounted(() => {
+  const localeMode = localStorage.getItem('HUMANDETAIL_THEME')
+  if (localeMode === 'dark' || localeMode === 'light') {
+    mode.value = localeMode
+  }
+})
 </script>
 
 <style lang="scss" scoped>

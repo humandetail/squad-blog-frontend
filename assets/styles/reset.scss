@@ -14,6 +14,7 @@
 
 ::-webkit-scrollbar {
   width: 10px;
+  height: 10px;
   background-color: var(--background-color);
   box-shadow: -1px -1px 2px var(--shadow-color-light) inset, 1px 1px 2px var(--shadow-color-dark) inset;
   border-radius: 5px;
@@ -85,15 +86,15 @@ h6 {
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 36px;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 28px;
 }
 
 h3 {
-  font-size: 22px;
+  font-size: 24px;
 }
 
 h4 {
@@ -101,7 +102,7 @@ h4 {
 }
 
 h5 {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 h6 {

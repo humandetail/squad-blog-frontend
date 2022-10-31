@@ -36,7 +36,7 @@ export const setTheme = (mode: ThemeMode) => {
 
   const themeStr = Object.entries(theme).reduce((prev, [key, value]) => {
     return prev + `--${key}: ${value};`
-  }, '')
+  }, `color-scheme: ${mode};`)
 
   oHTML.className = mode
   oHTML.setAttribute('style', themeStr)

@@ -41,3 +41,35 @@ defineProps<{
   post: PostData
 }>()
 </script>
+
+<style lang="scss" scoped>
+.post-widgets {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--gap16);
+  margin: var(--gap24) 0;
+  line-height: 28px;
+
+  .post-tag {
+    align-items: center;
+    padding: 0 var(--gap16);
+    color: var(--primary-text);
+    border-radius: 4px;
+    box-shadow: 1px 1px 2px var(--shadow-color-dark), -1px -1px 2px var(--shadow-color-light);
+
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: var(--success-color);
+    }
+
+    &:active {
+      box-shadow: 1px 1px 2px var(--shadow-color-dark) inset, -1px -1px 2px var(--shadow-color-light) inset;
+    }
+  }
+}
+</style>

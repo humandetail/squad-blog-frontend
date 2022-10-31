@@ -5,6 +5,7 @@ const dark: Record<string, string> = {
   'gray-text': '#818181',
 
   'cover-bg': 'rgb(41,41,41)',
+  'code-bg': 'rgb(75, 76, 84)',
 
   'shadow-color-light': '#383838',
   'shadow-color-dark': '#222',

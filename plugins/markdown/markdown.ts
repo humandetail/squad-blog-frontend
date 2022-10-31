@@ -19,7 +19,9 @@ import { collectBlockCode, codeLineNumbers } from 'markdown-it-plugins'
 
 // import 'markdown-it-latex/dist/index.css'
 
-const createCodeCopyIcon = (str: string) => `<span class="copy iconfont icon-file-copy" data-source="${markdown.utils.escapeHtml(str)}" title="复制代码"></span>`
+// const createCodeCopyIcon = (str: string) => `<div class="copy-code" data-source="${markdown.utils.escapeHtml(str)}" title="复制代码">
+//   <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M853.333333 85.333333H426.666667c-47.061333 0-85.333333 38.272-85.333334 85.333334v170.666666H170.666667c-47.061333 0-85.333333 38.272-85.333334 85.333334v426.666666c0 47.061333 38.272 85.333333 85.333334 85.333334h426.666666c47.061333 0 85.333333-38.272 85.333334-85.333334v-170.666666h170.666666c47.061333 0 85.333333-38.272 85.333334-85.333334V170.666667c0-47.061333-38.272-85.333333-85.333334-85.333334zM170.666667 853.333333V426.666667h426.666666l0.085334 426.666666H170.666667z m682.666666-256h-170.666666v-170.666666c0-47.061333-38.272-85.333333-85.333334-85.333334h-170.666666V170.666667h426.666666v426.666666z"></path></svg>
+// </div>`
 
 const markdown = new MarkdownIt({
   html: true, // Enable HTML tags in source
@@ -37,15 +39,24 @@ const markdown = new MarkdownIt({
     if (lang === 'ts') {
       lang = 'typescript'
     }
+    // if (lang && hljs.getLanguage(lang)) {
+    //   try {
+    //     return `<pre class="hljs"><div class="extra"><span class="lang">${lang}</span>${createCodeCopyIcon(str)}</div><code>${hljs.highlight(str, { language: lang, ignoreIllegals: true }).value}</code></pre>`
+    //   } catch {
+    //     return `<pre class="hljs"><div class="extra">${createCodeCopyIcon(str)}</div><code>${markdown.utils.escapeHtml(str)}</code></pre>`
+    //   }
+    // }
+
+    // return `<pre class="hljs"><div class="extra">${createCodeCopyIcon(str)}</div><code>${markdown.utils.escapeHtml(str)}</code></pre>`
     if (lang && hljs.getLanguage(lang)) {
       try {
-        return `<pre class="hljs"><div class="extra"><span class="lang">${lang}</span>${createCodeCopyIcon(str)}</div><code>${hljs.highlight(str, { language: lang, ignoreIllegals: true }).value}</code></pre>`
+        return `<pre class="hljs"><code>${hljs.highlight(str, { language: lang, ignoreIllegals: true }).value}</code></pre>`
       } catch {
-        return `<pre class="hljs"><div class="extra">${createCodeCopyIcon(str)}</div><code>${markdown.utils.escapeHtml(str)}</code></pre>`
+        return `<pre class="hljs"><code>${markdown.utils.escapeHtml(str)}</code></pre>`
       }
     }
 
-    return `<pre class="hljs"><div class="extra">${createCodeCopyIcon(str)}</div><code>${markdown.utils.escapeHtml(str)}</code></pre>`
+    return `<pre class="hljs"><code>${markdown.utils.escapeHtml(str)}</code></pre>`
   }
 })
 
@@ -53,52 +64,52 @@ const uslugify = (s: string) => {
   return uslug(s)
 }
 
-markdown.renderer.rules.heading_open = function (tokens, idx, options, _env, self) {
-  if (
-    tokens[idx].type === 'heading_open' &&
-    tokens[idx + 1].type === 'inline' &&
-    tokens[idx + 2].type === 'heading_close'
-  ) {
-    tokens[idx + 1].index = 1
-    tokens[idx + 1].children.unshift({
-      attrs: [['class', 'heading-inner']],
-      block: false,
-      children: null,
-      content: '',
-      hidden: false,
-      info: '',
-      level: 0,
-      map: null,
-      markup: '**',
-      meta: null,
-      nesting: 1,
-      tag: 'strong',
-      type: 'strong_open'
-    })
-    tokens[idx + 1].children.push({
-      attrs: null,
-      block: false,
-      children: null,
-      content: '',
-      hidden: false,
-      info: '',
-      level: 0,
-      map: null,
-      markup: '**',
-      meta: null,
-      nesting: -1,
-      tag: 'strong',
-      type: 'strong_close'
-    })
-    return self.renderToken(tokens, idx, options)
-  }
-}
+// markdown.renderer.rules.heading_open = function (tokens, idx, options, _env, self) {
+//   if (
+//     tokens[idx].type === 'heading_open' &&
+//     tokens[idx + 1].type === 'inline' &&
+//     tokens[idx + 2].type === 'heading_close'
+//   ) {
+//     tokens[idx + 1].index = 1
+//     tokens[idx + 1].children.unshift({
+//       attrs: [['class', 'heading-inner']],
+//       block: false,
+//       children: null,
+//       content: '',
+//       hidden: false,
+//       info: '',
+//       level: 0,
+//       map: null,
+//       markup: '**',
+//       meta: null,
+//       nesting: 1,
+//       tag: 'strong',
+//       type: 'strong_open'
+//     })
+//     tokens[idx + 1].children.push({
+//       attrs: null,
+//       block: false,
+//       children: null,
+//       content: '',
+//       hidden: false,
+//       info: '',
+//       level: 0,
+//       map: null,
+//       markup: '**',
+//       meta: null,
+//       nesting: -1,
+//       tag: 'strong',
+//       type: 'strong_close'
+//     })
+//     return self.renderToken(tokens, idx, options)
+//   }
+// }
 
-markdown.renderer.rules.image = function (tokens, idx, options, _env, self) {
-  tokens[idx].attrs[1][1] = tokens[idx].content
-  tokens[idx].attrPush(['onclick', `window.open('${tokens[idx].attrs[0][1]}', '_blank')`])
-  return self.renderToken(tokens, idx, options)
-}
+// markdown.renderer.rules.image = function (tokens, idx, options, _env, self) {
+//   tokens[idx].attrs[1][1] = tokens[idx].content
+//   tokens[idx].attrPush(['onclick', `window.open('${tokens[idx].attrs[0][1]}', '_blank')`])
+//   return self.renderToken(tokens, idx, options)
+// }
 
 // add target="_blank" to all link
 const defaultRender = markdown.renderer.rules.link_open || function (tokens, idx, options, _env, self) {
@@ -158,7 +169,11 @@ markdown
   .use(MarkdownItContainer, 'hljs-center')
   .use(MarkdownItContainer, 'hljs-right')
   .use(codeLineNumbers)
-  .use(collectBlockCode)
+  .use(collectBlockCode, {
+    lang: true,
+    copy: true,
+    copyText: '<svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M853.333333 85.333333H426.666667c-47.061333 0-85.333333 38.272-85.333334 85.333334v170.666666H170.666667c-47.061333 0-85.333333 38.272-85.333334 85.333334v426.666666c0 47.061333 38.272 85.333333 85.333334 85.333334h426.666666c47.061333 0 85.333333-38.272 85.333334-85.333334v-170.666666h170.666666c47.061333 0 85.333333-38.272 85.333334-85.333334V170.666667c0-47.061333-38.272-85.333333-85.333334-85.333334zM170.666667 853.333333V426.666667h426.666666l0.085334 426.666666H170.666667z m682.666666-256h-170.666666v-170.666666c0-47.061333-38.272-85.333333-85.333334-85.333334h-170.666666V170.666667h426.666666v426.666666z"></path></svg>'
+  })
   // 流程图
   // .use(MarkdownItGraphviz)
   // 公式
