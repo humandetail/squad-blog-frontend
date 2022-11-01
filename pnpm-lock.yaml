@@ -26,7 +26,7 @@ specifiers:
   markdown-it-task-lists: ^2.1.1
   markdown-it-toc-done-right: ^4.2.0
   nuxt: 3.0.0-rc.11
-  pretty-preview: ^1.1.1
+  pretty-preview: ^1.1.2
   sass: ^1.55.0
   typescript: ^4.8.4
   uslug: ^1.0.4
@@ -47,7 +47,7 @@ dependencies:
   markdown-it-sup: 1.0.0
   markdown-it-task-lists: 2.1.1
   markdown-it-toc-done-right: 4.2.0
-  pretty-preview: 1.1.1
+  pretty-preview: 1.1.2
   uslug: 1.0.4
   vue3-lazyload: 0.3.6
 
@@ -5752,8 +5752,8 @@ packages:
     engines: {node: ^14.13.1 || >=16.0.0}
     dev: true
 
-  /pretty-preview/1.1.1:
-    resolution: {integrity: sha512-0a62VoD7KnOFOH0n1jO1QbGIf+oPQ9dGqgYKgPeEdVTeV3UlzrO1qCt0QzlRKuh67yr9HUgbHwQq50KL8mHQ5w==}
+  /pretty-preview/1.1.2:
+    resolution: {integrity: sha512-OqRtEnM1joz8IM/9g1P28A1kB3hERN90WUkRQ0Ig560PX2yMcwAutqxzg7CKlCQk8kflny/mSrPoAJhBYHtr5A==}
     dev: false
 
   /process-nextick-args/2.0.1:
