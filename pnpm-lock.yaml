@@ -3,6 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@commitlint/cli': ^17.1.2
   '@commitlint/config-conventional': ^17.1.0
+  '@humandetail/carousel': ^0.0.4
   '@nuxtjs/eslint-config-typescript': ^11.0.0
   '@nuxtjs/eslint-module': ^3.1.0
   commitizen: ^4.2.5
@@ -33,6 +34,7 @@ specifiers:
   vue3-lazyload: ^0.3.6
 
 dependencies:
+  '@humandetail/carousel': 0.0.4
   highlight.js: 11.6.0
   markdown-it: 13.0.1
   markdown-it-abbr: 1.0.4
@@ -584,6 +586,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@humandetail/carousel/0.0.4:
+    resolution: {integrity: sha512-qH3AsF7EfVTF4mYX7PQWVCjuUECkzd66Heuun0O5WEFxdxzV+IJcm2WZ5ovbWSyjuNRDVLza1Kc73dmFzghAzg==}
+    dev: false
 
   /@humanwhocodes/config-array/0.10.7:
     resolution: {integrity: sha512-MDl6D6sBsaV452/QSdX+4CXIjZhIcI0PELsxUjk4U828yd58vk3bTIvk/6w5FY+4hIy9sLW0sfrV7K7Kc++j/w==}

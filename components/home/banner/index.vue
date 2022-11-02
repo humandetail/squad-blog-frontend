@@ -1,49 +1,130 @@
 <template>
-  <section class="banner">
-    <CommonLoading :loading="pending">
-      <article
-        v-for="item in records"
-        :key="item.id"
-        class="post-item"
-      >
-        <div class="content">
-          <h2 class="title">
-            <nuxt-link
-              :to="`/posts/${item.id}`"
-            >
-              {{ item.title }}
-            </nuxt-link>
-          </h2>
+  <section ref="bannerRef" class="banner">
+    <div class="wrapper">
+      <CommonLoading :loading="pending">
+        <article
+          v-for="item in records"
+          :key="item.id"
+          class="post-item"
+        >
+          <div class="content">
+            <h2 class="title">
+              <nuxt-link
+                :to="`/posts/${item.id}`"
+              >
+                {{ item.title }}
+              </nuxt-link>
+            </h2>
 
-          <div class="summary">
-            {{ item.summary }}
-          </div>
+            <div class="summary">
+              {{ item.summary }}
+            </div>
 
-          <div class="extra">
-            <nuxt-link
-              :to="`/posts/${item.id}`"
-              class="btn-more"
-            >
-              查看更多
-            </nuxt-link>
+            <div class="extra">
+              <nuxt-link
+                :to="`/posts/${item.id}`"
+                class="btn-more"
+              >
+                查看更多
+              </nuxt-link>
+            </div>
           </div>
-        </div>
-        <div class="cover">
-          <CommonCoverPic
-            :url="item.coverPic"
-            :alt="item.title"
-            :to="`/posts/${item.id}`"
-          />
-        </div>
-      </article>
-    </CommonLoading>
+          <div class="cover">
+            <img
+              :src="item.coverPic"
+              class="cover-img"
+              alt="item.title"
+            >
+          </div>
+        </article>
+      </CommonLoading>
+    </div>
   </section>
 </template>
 
 <script setup lang="ts">
+import Carousel from '@humandetail/carousel'
 import { getRecommendedPosts } from '~~/config/api'
+import '@humandetail/carousel/index.css'
 
+const bannerRef = ref<HTMLElement>()
 const { data, pending } = await getRecommendedPosts(1, 5)
 
 const records = computed(() => data.value.records)
+
+watch(bannerRef, () => {
+  if (bannerRef.value) {
+    // eslint-disable-next-line no-new
+    new Carousel(bannerRef.value, {
+      loop: true,
+      draggable: true,
+      delay: 3000,
+      autoplay: true
+    })
+  }
+})
+
 </script>
+
+<style lang="scss" scoped>
+@import '~~/assets/styles/mixins.scss';
+
+.banner {
+  padding: var(--gap16);
+  border-radius: var(--border-radius);
+  box-shadow: -2px -2px 4px var(--shadow-color-dark), 2px 2px 4px var(--shadow-color-light);
+}
+
+.post-item {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gap24);
+  height: 280px;
+  padding: 0 var(--gap16);
+  overflow: hidden;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    min-width: 0;
+    padding: var(--gap16) 0;
+
+    .title {
+      font-size: 20px;
+      max-height: 64px;
+      line-height: 32px;
+      @include multi-ellipsis(2);
+    }
+
+    .summary {
+      max-height: 72px;
+      padding: 0 var(--gap16) 0 var(--gap32);
+      line-height: 24px;
+      color: var(--secondary-text);
+      white-space: break-word;
+      @include multi-ellipsis(3);
+    }
+
+    .btn-more {
+      padding: var(--gap8) var(--gap24);
+      border-radius: 4px;
+      box-shadow: -1px -1px 2px var(--shadow-color-light), 1px 1px 2px var(--shadow-color-dark);
+
+      &:focus,
+      &:hover {
+        text-decoration: none;
+      }
+
+      &:active {
+      box-shadow: -1px -1px 2px var(--shadow-color-light) inset, 1px 1px 2px var(--shadow-color-dark) inset;
+      }
+    }
+  }
+
+  .cover-img {
+    height: 280px;
+  }
+}
+</style>

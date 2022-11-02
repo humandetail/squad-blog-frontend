@@ -101,7 +101,12 @@ export const getRecommendedPosts = (current: number, pageSize: number) => useReq
 /**
  * 获取最新文章列表
  */
-export const getNewPosts = () => useRequest<PageResponseType<PostItem>>(`${PREFIX}/posts/new`, { key: 'POSTS_NEW' })
+export const getNewPosts = () => useRequest<PageResponseType<PostItem>>(`${PREFIX}/posts/new`, {
+  key: 'POSTS_NEW',
+  params: {
+    pageSize: 12
+  }
+})
 
 /**
  * 获取文章详情
