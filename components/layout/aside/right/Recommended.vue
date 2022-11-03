@@ -58,6 +58,10 @@ records.value = data.value.records || []
         gap: var(--gap16);
         color: var(--primary-text);
 
+        &:hover {
+          color: var(--brand-color);
+        }
+
         .cover-pic {
           width: 100px;
         }

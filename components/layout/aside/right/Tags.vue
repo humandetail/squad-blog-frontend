@@ -48,11 +48,15 @@ if (tags.value.length === 0) {
   .list {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
-    padding: 4px 0;
+    gap: var(--gap16);
+    padding: var(--gap16) 0;
 
     .tag {
       color: var(--primary-text);
+
+      &:hover {
+        color: var(--brand-color);
+      }
     }
   }
 }
