@@ -73,7 +73,6 @@ const navs = computed(() => {
 .nav-list {
   .nav-item {
     margin: 16px 0;
-    // padding: 0px 0px 0px 16px;
     height: 48px;
     border-radius: 8px;
     border: 1px solid var(--shadow-color-dark);
@@ -119,12 +118,14 @@ const navs = computed(() => {
       &:hover {
         @media screen and (max-width: 1440px) {
           text-decoration: underline;
+        }
 
-          &::before {
-            @media screen and (max-width: 1440px) {
-              box-shadow: -1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-dark);
-            }
-          }
+        &::before {
+          box-shadow: -1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-dark);
+        }
+
+        &::after {
+          box-shadow: -1px -1px 1px var(--shadow-color-light), 1px 1px 1px var(--shadow-color-dark);
         }
       }
 
