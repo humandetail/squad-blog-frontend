@@ -36,6 +36,8 @@
     color: var(--brand-color);
     text-decoration: none;
     background-color: transparent;
+    border-bottom: 1px dashed;
+    margin: 0 3px;
 
     &:hover,
     &:active {
@@ -43,7 +45,7 @@
     }
 
     &:hover {
-      text-decoration: underline;
+      border-bottom: 1px solid;
     }
 
     &:not([href]) {
@@ -208,7 +210,11 @@
       &:nth-child(2n) {
         background-color: var(--shadow-color-light);
       }
-      
+
+      &:hover {
+        color: #fff;
+        background-color: var(--warning-color);
+      }
     }
 
     thead tr {
@@ -236,35 +242,33 @@
     width: fit-content;
     padding: 2px 16px;
     color: var(--brand-color);
+    background:
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat left top / 32px 2px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat left top / 2px 16px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat left bottom / 0px 2px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat left bottom / 2px 0px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat right bottom / 32px 2px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat right bottom / 2px 16px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat right top / 0px 2px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat right top / 2px 0px
+    ;
+    animation: headerAniOut linear .3s forwards;
 
-    &::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 8px;
-      height: 16px;
-      border-width: 3px 0 0 3px;
-      border-color: var(--brand-color);
-      border-style: solid;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      width: 8px;
-      height: 16px;
-      border-width: 0 3px 3px 0;
-      border-color: var(--brand-color);
-      border-style: solid;
+    &:hover {
+      animation: headerAniIn linear .3s forwards;
     }
 
     tt,
     code {
       padding: 0 .2em;
       font-size: inherit;
+    }
+  }
+
+  :not(pre) > code {
+    &:hover {
+      color: #fff;
+      background: var(--purple-color) linear-gradient(var(--danger-color), var(--danger-color)) no-repeat left top/100% 1px;
     }
   }
 
@@ -477,8 +481,12 @@
   }
 
   .collect-block-code {
-    box-shadow: 2px 2px 4px var(--shadow-color-dark) inset, -2px -2px 4px var(--shadow-color-light) inset;
     border-radius: 4px;
+    box-shadow: 2px 2px 4px var(--shadow-color-dark) inset, -2px -2px 4px var(--shadow-color-light) inset;
+
+    &:hover {
+      box-shadow: 2px 2px 4px var(--shadow-color-dark), -2px -2px 4px var(--shadow-color-light);
+    }
 
     .collect-block-trigger {
       position: relative;
@@ -597,5 +605,122 @@
         }
       }
     }
+  }
+}
+
+
+@keyframes headerAniIn {
+  0% {
+    color: var(--brand-color);
+    background:
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat left top / 32px 2px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat left top / 2px 16px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat left bottom / 0px 2px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat left bottom / 2px 0px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat right bottom / 32px 2px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat right bottom / 2px 16px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat right top / 0px 2px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat right top / 2px 0px
+    ;
+  }
+
+  49.9% {
+    color: var(--success-color);
+    background:
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left top / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left top / 2px 100%,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left bottom / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left bottom / 2px 0px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right bottom / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right bottom / 2px 100%,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right top / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right top / 2px 0px
+    ;
+  }
+
+  50.1% {
+    color: var(--success-color);
+    background:
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left top / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left top / 2px 0,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left bottom / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left bottom / 2px 100%,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right bottom / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right bottom / 2px 0,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right top / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right top / 2px 100%
+    ;
+  }
+
+  100% {
+    color: var(--danger-color);
+    background:
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat left top / 0px 2px,
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat left top / 2px 0,
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat left bottom / 32px 2px,
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat left bottom / 2px 16px,
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat right bottom / 0px 2px,
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat right bottom / 2px 0,
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat right top / 32px 2px,
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat right top / 2px 16px
+    ;
+  }
+}
+
+@keyframes headerAniOut {
+  0% {
+    color: var(--danger-color);
+    background:
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat left top / 0px 2px,
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat left top / 2px 0,
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat left bottom / 32px 2px,
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat left bottom / 2px 16px,
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat right bottom / 0px 2px,
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat right bottom / 2px 0,
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat right top / 32px 2px,
+      linear-gradient(var(--danger-color), var(--danger-color)) no-repeat right top / 2px 16px
+    ;
+  }
+
+  49.9% {
+    color: var(--success-color);
+    background:
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left top / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left top / 2px 0,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left bottom / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left bottom / 2px 100%,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right bottom / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right bottom / 2px 0,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right top / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right top / 2px 100%
+    ;
+  }
+
+  51.1% {
+    color: var(--success-color);
+    background:
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left top / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left top / 2px 100%,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left bottom / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat left bottom / 2px 0px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right bottom / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right bottom / 2px 100%,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right top / 0px 2px,
+      linear-gradient(var(--success-color), var(--success-color)) no-repeat right top / 2px 0px
+    ;
+  }
+
+  100% {
+    color: var(--brand-color);
+    background:
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat left top / 32px 2px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat left top / 2px 16px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat left bottom / 0px 2px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat left bottom / 2px 0px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat right bottom / 32px 2px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat right bottom / 2px 16px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat right top / 0px 2px,
+      linear-gradient(var(--brand-color), var(--brand-color)) no-repeat right top / 2px 0px
+    ;
   }
 }
