@@ -1,17 +1,19 @@
 <template>
-  <LayoutCATransition />
-  <div v-show="visible" class="page-container">
-    <LayoutAsideHeader />
+  <div class="layout-default">
+    <LayoutCATransition />
+    <div v-show="visible" class="page-container">
+      <LayoutAsideHeader />
 
-    <div class="container">
-      <LayoutContainer>
-        <slot />
-      </LayoutContainer>
+      <div class="container">
+        <LayoutContainer>
+          <slot />
+        </LayoutContainer>
 
-      <LayoutAsideRight />
+        <LayoutAsideRight />
+      </div>
+
+      <LayoutFooter />
     </div>
-
-    <LayoutFooter />
   </div>
 </template>
 
@@ -24,6 +26,12 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.layout-default {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
 .page-container {
   display: grid;
   // gap: var(--gap24);
