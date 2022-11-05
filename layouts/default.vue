@@ -1,5 +1,6 @@
 <template>
-  <div class="page-container">
+  <LayoutCATransition />
+  <div v-show="visible" class="page-container">
     <LayoutAsideHeader />
 
     <div class="container">
@@ -13,6 +14,14 @@
     <LayoutFooter />
   </div>
 </template>
+
+<script setup lang="ts">
+const visible = ref(false)
+
+onMounted(() => {
+  visible.value = true
+})
+</script>
 
 <style lang="scss" scoped>
 .page-container {

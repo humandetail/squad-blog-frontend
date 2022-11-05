@@ -49,6 +49,7 @@
     "markdown-it-task-lists": "^2.1.1",
     "markdown-it-toc-done-right": "^4.2.0",
     "pretty-preview": "^1.1.2",
+    "unit-path": "^0.0.4",
     "uslug": "^1.0.4",
     "vue3-lazyload": "^0.3.6"
   }
