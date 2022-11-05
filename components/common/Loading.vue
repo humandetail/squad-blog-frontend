@@ -22,9 +22,9 @@ defineProps<{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: .16rem;
+  padding: var(--gap16);
   margin: 0 auto;
-  font-size: .7rem;
+  font-size: 70px;
   color: var(--brand-color);
   .loader {
     display: inline-block;
