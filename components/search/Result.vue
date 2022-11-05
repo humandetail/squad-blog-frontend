@@ -11,10 +11,12 @@
 
 <script setup lang="ts">
 import { PostItem } from '~~/types/response'
-defineProps<{
+withDefaults(defineProps<{
   records: PostItem[];
   keyword: string
-}>()
+}>(), {
+  keyword: ''
+})
 </script>
 
 <style lang="scss" scoped>
