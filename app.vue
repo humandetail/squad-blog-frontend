@@ -10,6 +10,10 @@ import { setTheme } from './libs/utils'
 const mode = useThemeMode()
 
 onMounted(() => {
+  const localeMode = localStorage.getItem('HUMANDETAIL_THEME')
+  if (localeMode === 'dark' || localeMode === 'light') {
+    mode.value = localeMode
+  }
   setTheme(mode.value)
 })
 

@@ -46,13 +46,6 @@ const handleSwitchMode = () => {
 
   localStorage.setItem('HUMANDETAIL_THEME', m)
 }
-
-onMounted(() => {
-  const localeMode = localStorage.getItem('HUMANDETAIL_THEME')
-  if (localeMode === 'dark' || localeMode === 'light') {
-    mode.value = localeMode
-  }
-})
 </script>
 
 <style lang="scss" scoped>
