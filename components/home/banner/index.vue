@@ -54,13 +54,15 @@ const records = computed(() => data.value.records)
 
 watch(bannerRef, () => {
   if (bannerRef.value) {
-    // eslint-disable-next-line no-new
-    new Carousel(bannerRef.value, {
-      loop: true,
-      draggable: true,
-      delay: 3000,
-      autoplay: true
-    })
+    setTimeout(() => {
+      // eslint-disable-next-line no-new
+      new Carousel(bannerRef.value, {
+        loop: true,
+        draggable: true,
+        delay: 3000,
+        autoplay: true
+      })
+    }, 100)
   }
 })
 
@@ -70,9 +72,27 @@ watch(bannerRef, () => {
 @import '~~/assets/styles/mixins.scss';
 
 .banner {
+  position: relative;
   padding: var(--gap16);
   border-radius: var(--border-radius);
   box-shadow: -2px -2px 4px var(--shadow-color-dark), 2px 2px 4px var(--shadow-color-light);
+
+  // 处理边界
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    height: 100%;
+    width: 2px;
+    background-color: var(--background-color);
+  }
+
+  .wrapper {
+    height: 280px;
+    overflow: hidden;
+  }
 }
 
 .post-item {
