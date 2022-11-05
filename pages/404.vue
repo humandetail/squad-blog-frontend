@@ -17,4 +17,32 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: 'plain'
+})
 </script>
+
+<style lang="scss" scoped>
+.page-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap32);
+  width: 80%;
+  height: 80%;
+  margin: 10% auto;
+  border-radius: 50%;
+  background-color: #fff;
+
+  .title {
+    font-size: 40px;
+    color: var(--danger-color);
+  }
+
+  .sub-title {
+    font-size: 32px;
+    color: var(--danger-color);
+  }
+}
+</style>
