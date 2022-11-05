@@ -18,7 +18,12 @@
 
 <script setup lang="ts">
 definePageMeta({
-  layout: 'plain'
+  layout: 'plain',
+  key: '404'
+})
+
+useHead({
+  title: 'PAGE NOT FOUND'
 })
 </script>
 

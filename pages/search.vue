@@ -25,6 +25,10 @@ import { getPostsByKeywods } from '~~/config/api'
 import { PaginationChangeType } from '~~/types/pagination'
 import { PostItem } from '~~/types/response'
 
+definePageMeta({
+  key: 'Search'
+})
+
 const route = useRoute()
 
 const onPaginationChange = async ({ currentPage, currentPageSize }: PaginationChangeType) => {
@@ -69,4 +73,8 @@ watch(keyword, () => {
 
   onPaginationChange({ currentPage: 1, currentPageSize: 10 })
 }, { immediate: true })
+
+useHead({
+  title: '搜索'
+})
 </script>

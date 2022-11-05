@@ -24,8 +24,11 @@
 
 <script setup lang="ts">
 import { getCategories } from '~~/config/api'
+const categories = useCategories()
 
 const { data } = await getCategories()
+
+categories.value = data.value.records
 
 const navs = computed(() => {
   return [

@@ -50,7 +50,13 @@ import { getPostDetail } from '~~/config/api'
 
 import 'pretty-preview/index.css'
 
+definePageMeta({
+  key: route => `Posts-${route.params.id}`
+})
+
 useCodeCopy()
+
+const settings = useSettings()
 
 const themeMode = useThemeMode()
 const contentRef = ref<HTMLDivElement>()
@@ -63,10 +69,6 @@ const hljsStylesheetLink = computed(() => [
       : 'https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/github.min.css'
   }
 ])
-
-useHead({
-  link: hljsStylesheetLink
-})
 
 const { $markdownRender } = useNuxtApp()
 const route = useRoute()
@@ -103,6 +105,15 @@ const next = computed(() => data.value.next || null)
 const content = ref(post.value.content || '')
 const toc = ref('')
 const isMounted = ref(false)
+
+useHead({
+  link: hljsStylesheetLink,
+  title: post.value.seoTitle ? post.value.seoTitle : post.value.title,
+  meta: [
+    { name: 'keyword', content: `${post.value.seoKeywords ? post.value.seoKeywords + ',' : ''}${settings.value.seoKeywords}` },
+    { name: 'description', content: `${post.value.seoDescription ? post.value.seoDescription + ',' : ''}${settings.value.seoDescription}` }
+  ]
+})
 </script>
 
 <style lang="scss">

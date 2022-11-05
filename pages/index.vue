@@ -6,4 +6,7 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  key: 'Home'
+})
 </script>

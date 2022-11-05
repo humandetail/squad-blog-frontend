@@ -20,10 +20,16 @@ import { getPostByCategoryName } from '~~/config/api'
 import { PaginationChangeType } from '~~/types/pagination'
 import { PostItemType } from '~~/types/response'
 
+definePageMeta({
+  key: route => `Categories-${route.params.name}`
+})
+
 const route = useRoute()
 
 const loading = ref(false)
 const records = ref<PostItemType[]>([])
+
+const categories = useCategories()
 
 const categoryName = computed(() => {
   const name = route.params.name
@@ -31,6 +37,11 @@ const categoryName = computed(() => {
     return name[0].trim()
   }
   return name.trim()
+})
+
+const displayName = computed(() => {
+  const item = categories.value.find(item => item.name === categoryName.value)
+  return item ? item.displayName : '-'
 })
 
 const onPaginationChange = async ({ currentPage, currentPageSize }: PaginationChangeType) => {
@@ -53,6 +64,10 @@ const pagination = usePagination({
 })
 
 onPaginationChange({ currentPage: 1, currentPageSize: 10 })
+
+useHead({
+  title: displayName
+})
 </script>
 
 <style lang="scss" scoped>

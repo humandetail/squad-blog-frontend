@@ -20,10 +20,16 @@ import { getPostByTagName } from '~~/config/api'
 import { PaginationChangeType } from '~~/types/pagination'
 import { PostItemType } from '~~/types/response'
 
+definePageMeta({
+  key: route => `Tags-${route.params.name}`
+})
+
 const route = useRoute()
 
 const loading = ref(false)
 const records = ref<PostItemType[]>([])
+
+const tags = useTags()
 
 const tagName = computed(() => {
   const name = route.params.name
@@ -31,6 +37,11 @@ const tagName = computed(() => {
     return name[0].trim()
   }
   return name.trim()
+})
+
+const displayName = computed(() => {
+  const item = tags.value.find(item => item.name === tagName.value)
+  return item ? item.displayName : '-'
 })
 
 const onPaginationChange = async ({ currentPage, currentPageSize }: PaginationChangeType) => {
@@ -53,6 +64,10 @@ const pagination = usePagination({
 })
 
 onPaginationChange({ currentPage: 1, currentPageSize: 10 })
+
+useHead({
+  title: displayName
+})
 </script>
 
 <style lang="scss" scoped>

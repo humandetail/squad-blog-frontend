@@ -1,7 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   app: {
-    keepalive: true,
     pageTransition: false,
     layoutTransition: false
   },
