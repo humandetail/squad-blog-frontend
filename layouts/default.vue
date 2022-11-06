@@ -4,7 +4,7 @@
     <div v-show="visible" class="page-container">
       <LayoutAsideHeader />
 
-      <div class="container">
+      <div id="J_Container" class="container">
         <LayoutContainer>
           <slot />
         </LayoutContainer>

@@ -15,6 +15,8 @@
 <script setup lang="ts">
 import { dark, light } from '~~/config/theme'
 
+useScrollBehavious()
+
 const mode = useThemeMode()
 const settings = useSettings()
 

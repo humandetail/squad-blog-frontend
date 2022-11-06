@@ -1,6 +1,6 @@
 <template>
   <aside class="page-aside-right">
-    <div class="wrapper">
+    <div id="J_aside-right-wrapper" class="wrapper">
       <LayoutAsideRightSearch v-if="route.name !== 'search'" />
 
       <div id="post-toc" class="post-toc" />

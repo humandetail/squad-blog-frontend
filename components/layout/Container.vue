@@ -1,6 +1,6 @@
 <template>
   <main class="main-wrapper">
-    <div class="wrapper">
+    <div id="J_main-wrapper" class="wrapper">
       <slot />
     </div>
   </main>
