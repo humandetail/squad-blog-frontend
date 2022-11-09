@@ -36,15 +36,26 @@ const replaceKeyword = (value: string) => {
 
 .result-item {
   &:not(:first-child) {
-    margin-top: var(--gap16);
+    margin-top: var(--gap32);
   }
 
   .title {
-    @include ellipsis()
+    @include ellipsis();
+
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
   }
 
   .content {
     margin-top: var(--gap8);
+    @include multi-ellipsis(3);
+
+    @media screen and (max-width: 768px) {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
     .date {
       color: var(--secondary-text);
     }

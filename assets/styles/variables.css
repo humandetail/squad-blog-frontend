@@ -26,3 +26,15 @@
     --gap32: 24px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  :root {
+    --gap8: 4px;
+    --gap16: 8px;
+    --gap24: 12px;
+    --gap32: 16px;
+    --border-radius: 8px;
+
+    --negative-gap24: -12px;
+  }
+}

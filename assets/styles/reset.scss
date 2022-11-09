@@ -41,6 +41,10 @@ body,
 
 #__nuxt {
   overflow: hidden;
+
+  @media screen and (max-width: 768px) {
+    overflow: unset;
+  }
 }
 
 html {
@@ -54,6 +58,11 @@ body {
   font-size: 16px;
   color: var(--primary-text);
   background-color: var(--background-color);
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+    line-height: 1.2;
+  }
 }
 
 a {
@@ -86,26 +95,50 @@ h6 {
 
 h1 {
   font-size: 36px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 22px;
+  }
 }
 
 h2 {
   font-size: 28px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 20px;
+  }
 }
 
 h3 {
   font-size: 24px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 18px;
+  }
 }
 
 h4 {
   font-size: 20px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 h5 {
   font-size: 16px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 h6 {
   font-size: 16px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 p {

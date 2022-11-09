@@ -11,6 +11,7 @@ specifiers:
   eslint: ^8.25.0
   eslint-plugin-nuxt: ^4.0.0
   highlight.js: ^11.6.0
+  highlightjs-vue: ^1.0.0
   husky: ^8.0.0
   lint-staged: ^13.0.3
   markdown-it: ^13.0.1
@@ -37,6 +38,7 @@ specifiers:
 dependencies:
   '@humandetail/carousel': 0.0.5
   highlight.js: 11.6.0
+  highlightjs-vue: 1.0.0
   markdown-it: 13.0.1
   markdown-it-abbr: 1.0.4
   markdown-it-anchor: 8.6.5_markdown-it@13.0.1
@@ -3789,6 +3791,10 @@ packages:
   /highlight.js/11.6.0:
     resolution: {integrity: sha512-ig1eqDzJaB0pqEvlPVIpSSyMaO92bH1N2rJpLMN/nX396wTpDA4Eq0uK+7I/2XG17pFaaKE0kjV/XPeGt7Evjw==}
     engines: {node: '>=12.0.0'}
+    dev: false
+
+  /highlightjs-vue/1.0.0:
+    resolution: {integrity: sha512-PDEfEF102G23vHmPhLyPboFCD+BkMGu+GuJe2d9/eH4FsCwvgBpnc9n0pGE+ffKdph38s6foEZiEjdgHdzp+IA==}
     dev: false
 
   /homedir-polyfill/1.0.3:

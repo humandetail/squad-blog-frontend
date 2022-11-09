@@ -91,14 +91,24 @@ const getTime = (dateLinkString: string) => formatDate(dateLinkString, 'YYYY年M
 .posts {
   display: flex;
   flex-wrap: wrap;
-  gap: 32px;
+  gap: var(--gap32);
 
   .item {
     width: calc(50% - 16px);
 
+    @media screen and (max-width: 768px) {
+      width: 100%;
+    }
+
     .post-item {
       padding: var(--gap16);
       border-radius: var(--gap8);
+
+      @media screen and (max-width: 768px) {
+        padding: var(--gap24);
+        border-radius: var(--gap16);
+        box-shadow: 2px 2px 4px var(--shadow-color-dark), -2px -2px 4px var(--shadow-color-light);
+      }
 
       &:hover {
         box-shadow: 2px 2px 4px var(--shadow-color-dark), -2px -2px 4px var(--shadow-color-light);
@@ -113,7 +123,6 @@ const getTime = (dateLinkString: string) => formatDate(dateLinkString, 'YYYY年M
       .summary {
         margin: var(--gap16) 0;
         line-height: 24px;
-        height: 48px;
         color: var(--secondary-text);
         white-space: break-word;
         @include multi-ellipsis(2);
@@ -134,28 +143,46 @@ const getTime = (dateLinkString: string) => formatDate(dateLinkString, 'YYYY年M
         grid-template-columns: 40% calc(60% - 16px);
         gap: 16px;
 
+        @media screen and (max-width: 768px) {
+          grid-template-columns: unset;
+        }
+
         .title {
-          // grid-column: 1 / 24;
           grid-row: 1 / 2;
+
+          @media screen and (max-width: 768px) {
+            grid-column: 1 / 10;
+          }
         }
 
         .summary {
-          // grid-column: 1 / 14;
           grid-row: 2 / 4;
-          height: 72px;
           margin: 0;
           @include multi-ellipsis(3);
+
+          @media screen and (max-width: 768px) {
+            grid-column: 4 / 10;
+            grid-row: 2 / 5;
+          }
         }
 
         .widgets {
-          // grid-column: 1 / 14;
           grid-row: 4 / 5;
+
+          @media screen and (max-width: 768px) {
+            grid-column: 1 / 10;
+            grid-row: 5 / 6;
+          }
         }
 
         .cover-pic-with-link {
-          // grid-column: 14 / 24;
           grid-row: 1 / 5;
           order: -1;
+
+          @media screen and (max-width: 768px) {
+            grid-column: 1 / 4;
+            grid-row: 2 / 5;
+          }
         }
       }
     }

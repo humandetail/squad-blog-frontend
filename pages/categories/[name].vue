@@ -77,6 +77,10 @@ useHead({
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+
+  @media screen and (max-width: 768px) {
+    gap: 16px;
+  }
 }
 
 .post-item-category {
@@ -86,6 +90,10 @@ useHead({
   min-width: 0;
   border-radius: var(--border-radius);
   box-shadow: -3px -3px 6px var(--shadow-color-light), 3px 3px 6px var(--shadow-color-dark);
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 
   &:hover {
     box-shadow: -3px -3px 6px var(--shadow-color-light), 3px 3px 6px var(--shadow-color-dark);
@@ -97,11 +105,6 @@ useHead({
     .cover-pic {
       border-top-left-radius: var(--border-radius);
       border-top-right-radius: var(--border-radius);
-
-      img {
-        max-width: 100% !important;
-        max-height: 100% !important;
-      }
     }
   }
 

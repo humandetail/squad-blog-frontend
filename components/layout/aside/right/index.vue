@@ -29,8 +29,10 @@ const route = useRoute()
     box-shadow: var(--box-shadow);
     overflow-y: auto;
 
-    .post-toc:not(:empty) {
-      margin-bottom: var(--gap24);
+    .post-toc {
+      &:not(:empty) {
+        margin-bottom: var(--gap24);
+      }
     }
   }
 }

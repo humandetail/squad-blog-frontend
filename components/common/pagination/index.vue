@@ -171,6 +171,10 @@ function genPage (start: number, end: number) {
   gap: var(--gap8);
   margin-top: var(--gap24);
 
+  @media screen and (max-width: 768px) {
+    padding-bottom: 2px;
+  }
+
   .btn {
     display: flex;
     justify-content: center;
@@ -182,6 +186,15 @@ function genPage (start: number, end: number) {
     border: 0;
     background-color: transparent;
     box-shadow: -1px -1px 2px var(--shadow-color-light), 1px 1px 2px var(--shadow-color-dark);
+
+    @media screen and (max-width: 768px) {
+      height: 24px;
+      font-size: 12px;
+
+      .icon {
+        font-size: 12px;
+      }
+    }
 
     &:not(:disabled) {
       color: var(--primary-text);
@@ -216,8 +229,16 @@ function genPage (start: number, end: number) {
     gap: var(--gap8);
     height: 32px;
 
+    @media screen and (max-width: 768px) {
+      height: 24px;
+    }
+
     .btn {
       width: 32px;
+
+      @media screen and (max-width: 768px) {
+        width: 24px;
+      }
     }
   }
 }

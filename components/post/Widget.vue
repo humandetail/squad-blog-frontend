@@ -34,10 +34,20 @@ const NuxtLink = resolveComponent('NuxtLink')
 .post-widget {
   .widget {
     color: var(--primary-text);
+
+    @media screen and (max-width: 768px) {
+      font-size: 12px;
+      transform: scale(0.8);
+    }
   }
 
   .icon {
     vertical-align: -3px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 12px;
+      vertical-align: -1px;
+    }
   }
 }
 </style>

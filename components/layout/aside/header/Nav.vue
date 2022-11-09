@@ -70,6 +70,10 @@ const navs = computed(() => {
       display: block;
       font-size: 24px;
     }
+
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
   }
 }
 
@@ -111,6 +115,7 @@ const navs = computed(() => {
         background-image: unset;
         box-shadow: unset;
         line-height: 36px;
+        text-align: left;
       }
 
       &:focus,
@@ -154,6 +159,10 @@ const navs = computed(() => {
         border-radius: 50%;
         box-shadow: -1px -1px 1px var(--shadow-color-light) inset, 1px 1px 1px var(--shadow-color-dark) inset;
         transform: translateY(-50%);
+
+        @media screen and (max-width: 768px) {
+          left: 2px;
+        }
       }
 
       &::after {
@@ -194,6 +203,10 @@ const navs = computed(() => {
             border-radius: 50%;
             box-shadow: unset;
             transform: translateY(-50%);
+          }
+
+          @media screen and (max-width: 768px) {
+            left: 6px;
           }
         }
       }

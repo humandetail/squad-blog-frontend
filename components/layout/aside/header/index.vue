@@ -22,6 +22,15 @@
     overflow: unset;
   }
 
+  @media screen and (max-width: 768px) {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    margin: 0 var(--negative-gap24);
+    border-radius: 0 !important;
+    background-color: var(--background-color);
+  }
+
   .wrapper {
     height: 100%;
     padding: var(--gap24);
@@ -37,6 +46,11 @@
       position: relative;
       padding: var(--gap16) 48px var(--gap16) var(--gap16);
       overflow-y: unset;
+    }
+
+    @media screen and (max-width: 768px) {
+      padding: var(--gap16) 48px var(--gap16) var(--gap16);
+      gap: var(--gap32);
     }
   }
 }

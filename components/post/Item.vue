@@ -77,11 +77,19 @@ const widgets = computed(() => {
 
     a {
       display: block;
+
+      @media screen and (max-width: 768px) {
+        font-size: 16px;
+      }
     }
   }
 
   .summary {
     min-width: 0;
+
+    @media screen and (max-width: 768px) {
+      font-size: 12px;
+    }
   }
 
   .widgets {

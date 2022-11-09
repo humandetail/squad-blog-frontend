@@ -43,6 +43,10 @@
         border-radius: 50%;
         box-shadow: -1px -1px 2px var(--shadow-color-light) inset, 1px 1px 2px var(--shadow-color-dark) inset;
         transform: translateY(-50%);
+
+        @media screen and (max-width: 768px) {
+          left: -12px;
+        }
       }
     }
   }

@@ -78,6 +78,10 @@ useHead({
   padding: var(--gap16);
   border-radius: var(--border-radius);
 
+  @media screen and (max-width: 768px) {
+    grid-template-columns: unset;
+  }
+
   &:hover {
     box-shadow: -3px -3px 6px var(--shadow-color-light), 3px 3px 6px var(--shadow-color-dark);
   }
@@ -91,6 +95,15 @@ useHead({
     .cover-pic {
       border-radius: var(--gap16);
     }
+
+    @media screen and (max-width: 768px) {
+      grid-column: 1 / 4;
+      grid-row: 2 / 5;
+
+      .cover-pic {
+        border-radius: 0;
+      }
+    }
   }
 
   :deep(.title) {
@@ -102,6 +115,10 @@ useHead({
       line-height: 1;
       @include ellipsis;
     }
+
+    @media screen and (max-width: 768px) {
+      grid-column: 1 / 10;
+    }
   }
 
   :deep(.summary) {
@@ -109,9 +126,19 @@ useHead({
     line-height: 20px;
     max-height: 60px;
     @include multi-ellipsis(3);
+
+    @media screen and (max-width: 768px) {
+      grid-column: 4 / 10;
+      grid-row: 2 / 5;
+    }
   }
   :deep(.widgets) {
     grid-row: 4 / 5;
+
+    @media screen and (max-width: 768px) {
+      grid-column: 1 / 10;
+      grid-row: 5 / 6;
+    }
   }
 }
 </style>

@@ -29,7 +29,7 @@
               </nuxt-link>
             </div>
           </div>
-          <div class="cover">
+          <div class="cover" @click="handleCoverClick(item.id)">
             <img
               :src="item.coverPic"
               class="cover-img"
@@ -47,10 +47,16 @@ import Carousel from '@humandetail/carousel'
 import { getRecommendedPosts } from '~~/config/api'
 import '@humandetail/carousel/index.css'
 
+const router = useRouter()
+
 const bannerRef = ref<HTMLElement>()
 const { data, pending } = await getRecommendedPosts(1, 5)
 
 const records = computed(() => data.value.records)
+
+const handleCoverClick = (id: string) => {
+  router.push(`/posts/${id}`)
+}
 
 watch(bannerRef, () => {
   if (bannerRef.value) {
@@ -77,6 +83,12 @@ watch(bannerRef, () => {
   border-radius: var(--border-radius);
   box-shadow: -2px -2px 4px var(--shadow-color-dark), 2px 2px 4px var(--shadow-color-light);
 
+  @media screen and (max-width: 768px) {
+    padding: 0;
+    border-radius: 0;
+    box-shadow: unset;
+  }
+
   // 处理边界
   &::before {
     content: '';
@@ -92,6 +104,11 @@ watch(bannerRef, () => {
   .wrapper {
     height: 280px;
     overflow: hidden;
+
+    // @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1200px) {
+      height: auto;
+    }
   }
 }
 
@@ -103,6 +120,12 @@ watch(bannerRef, () => {
   padding: 0 var(--gap16);
   overflow: hidden;
 
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    height: auto;
+    padding: 0;
+  }
+
   .content {
     display: flex;
     flex-direction: column;
@@ -110,6 +133,10 @@ watch(bannerRef, () => {
     flex: 1;
     min-width: 0;
     padding: var(--gap16) 0;
+
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
 
     .title {
       font-size: 20px;
@@ -145,6 +172,13 @@ watch(bannerRef, () => {
 
   .cover-img {
     height: 280px;
+
+    // @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1200px) {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 440 / 280;
+    }
   }
 }
 </style>

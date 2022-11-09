@@ -34,11 +34,14 @@ useHead({
   align-items: center;
   justify-content: center;
   gap: var(--gap32);
-  width: 80%;
-  height: 80%;
-  margin: 10% auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   background-color: #fff;
+  transform: translate(-50%, -50%);
 
   .title {
     font-size: 40px;

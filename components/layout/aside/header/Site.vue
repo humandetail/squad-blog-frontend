@@ -59,6 +59,10 @@ const handleSwitchMode = () => {
     padding: 0;
   }
 
+  @media screen and (max-width: 768px) {
+    gap: var(--gap32);
+  }
+
   .site-logo {
     position: relative;
     width: 120px;
@@ -71,6 +75,11 @@ const handleSwitchMode = () => {
       position: static;
       width: 40px;
       height: 40px;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 32px;
+      height: 32px;
     }
 
     .site-link {
@@ -90,6 +99,11 @@ const handleSwitchMode = () => {
         width: 40px;
         height: 40px;
         padding: var(--gap8);
+      }
+
+      @media screen and (max-width: 768px) {
+        width: 32px;
+        height: 32px;
       }
     }
 

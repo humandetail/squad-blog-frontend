@@ -8,14 +8,21 @@
 
 <style lang="scss" scoped>
 .main-wrapper {
+  min-width: 0;
   padding: var(--gap24);
   overflow: hidden;
+
   .wrapper {
     height: 100%;
     padding: var(--gap24);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     overflow-y: auto;
+
+    @media screen and (max-width: 768px) {
+      padding: var(--gap16);
+      box-shadow: unset;
+    }
   }
 }
 </style>

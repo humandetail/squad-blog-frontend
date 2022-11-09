@@ -35,6 +35,7 @@
   "dependencies": {
     "@humandetail/carousel": "^0.0.5",
     "highlight.js": "^11.6.0",
+    "highlightjs-vue": "^1.0.0",
     "markdown-it": "^13.0.1",
     "markdown-it-abbr": "^1.0.4",
     "markdown-it-anchor": "^8.6.5",

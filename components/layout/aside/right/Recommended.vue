@@ -72,6 +72,11 @@ records.value = data.value.records || []
           line-height: 20px;
           max-height: 40px;
           overflow: hidden;
+
+          @media screen and (max-width: 768px) {
+            font-size: 14px;
+            line-height: 1.4;
+          }
         }
       }
     }

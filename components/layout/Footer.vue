@@ -27,6 +27,23 @@
 </script>
 
 <style lang="scss" scoped>
+.page-footer {
+  @media screen and (max-width: 768px) {
+    position: relative;
+    border-top: 1px solid var(--shadow-color-light);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -2px;
+      width: 100%;
+      height: 1px;
+      background-color: var(--shadow-color-dark);
+    }
+  }
+}
+
 .copyright-wrapper {
   display: flex;
   justify-content: center;
@@ -36,8 +53,8 @@
   line-height: 1.1;
   color: var(--secondary-text);
 
-  @media screen and (max-width: 640px) {
-    font-size: 10px;
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
     line-height: 1.2;
   }
 

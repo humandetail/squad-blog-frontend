@@ -79,6 +79,11 @@ const blogrolls = computed(() => (data.value.records || []).map(({ id, name, lin
         display: block;
         font-size: 24px;
       }
+
+      @media screen and (max-width: 768px) {
+        display: block;
+        font-size: 16px;
+      }
     }
   }
 
@@ -99,7 +104,7 @@ const blogrolls = computed(() => (data.value.records || []).map(({ id, name, lin
     .item-link {
       display: block;
       position: relative;
-      margin-top: 8px;
+      margin: 8px 0;
       padding-left: 24px;
       color: var(--secondary-text);
 
