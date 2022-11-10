@@ -13,6 +13,7 @@
 </template>
 
 <script setup lang="ts">
+import { getSettings } from './config/api'
 import { dark, light } from '~~/config/theme'
 
 useScrollBehavious()
@@ -21,14 +22,14 @@ const mode = useThemeMode()
 const settings = useSettings()
 
 useHead({
-  titleTemplate: titleChunk => titleChunk
-    ? `${titleChunk} - ${settings.value.seoTitle}`
-    : settings.value.seoTitle,
-  meta: [
+  titleTemplate: computed(() => titleChunk => titleChunk
+    ? `${titleChunk} - ${settings.value?.seoTitle}`
+    : settings.value?.seoTitle),
+  meta: computed(() => [
     { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no' },
-    { name: 'keywords', content: settings.value.seoKeywords },
-    { name: 'descriptions', conetnt: settings.value.seoDescription }
-  ]
+    { name: 'keywords', content: settings.value?.seoKeywords },
+    { name: 'descriptions', conetnt: settings.value?.seoDescription }
+  ])
 })
 
 const currentTheme = computed(() => {
@@ -47,4 +48,11 @@ onMounted(() => {
     mode.value = localeMode
   }
 })
+
+if (!settings.value) {
+  try {
+    const { data } = await getSettings()
+    settings.value = data.value
+  } catch {}
+}
 </script>

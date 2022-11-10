@@ -6,6 +6,8 @@
 
     <h2 class="sub-title">
       PAGE NOT FOUND.
+
+      {{ error }}
     </h2>
 
     <div class="content">
@@ -44,7 +46,7 @@ defineProps<{
   }
 
   .sub-title {
-    font-size: 32px;
+    font-size: 12px;
     color: var(--danger-color);
   }
 }
