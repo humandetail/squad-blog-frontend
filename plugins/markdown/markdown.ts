@@ -1,6 +1,6 @@
 import MarkdownIt from 'markdown-it'
 import hljs from 'highlight.js'
-import hljsDefineVue from 'highlightjs-vue'
+import * as hljsDefineVue from 'highlightjs-vue'
 import uslug from 'uslug'
 import MarkdownItAnchor from 'markdown-it-anchor'
 import MarkdownItTocDoneRight from 'markdown-it-toc-done-right'
