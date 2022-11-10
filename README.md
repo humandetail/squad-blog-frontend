@@ -1,6 +1,6 @@
-# Nuxt 3 Minimal Starter
+# Squad-blog-frontend
 
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+[Humandetail.com](https://humandetail.com)
 
 ## Setup
 
