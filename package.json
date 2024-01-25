@@ -20,6 +20,7 @@
     "husky": "^8.0.0",
     "lint-staged": "^15.2.0",
     "nuxt": "^3.9.3",
+    "sass": "^1.70.0",
     "typescript": "*",
     "vue": "^3.4.14",
     "vue-router": "^4.2.5"

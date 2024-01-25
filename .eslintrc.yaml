@@ -6,3 +6,6 @@ env:
 
 extends:
   - '@nuxt/eslint-config'
+
+rules:
+  vue/html-self-closing: 0
