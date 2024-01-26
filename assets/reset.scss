@@ -33,8 +33,12 @@ html {
   font-family: Sans,DM Sans fallback,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
   font-size: 10px;
 
-  @media (width <= 750px) {
-    font-size: calc(100vw / 75 - 0px);
+  @media screen and (max-width: 768px) {
+    font-size: calc(100vw / 76.8 - 0px);
+  }
+
+  @media screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+    font-size: calc(100vw / 38.4 - 0px);
   }
 
   &[data-theme="dark"] {

@@ -23,7 +23,12 @@ const handleMenuBtnClick = () => {
 
 <style lang="scss" scoped>
 .btn-menu {
+  display: none !important;
   position: relative;
+
+  @media screen and (max-width: 768px) {
+    display: block !important;
+  }
 
   .line {
     position: absolute;

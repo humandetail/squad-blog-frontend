@@ -178,6 +178,7 @@ const handleClearHistoryKeywords = () => {
   gap: var(--gap-sm);
   position: sticky;
   top: 1.6rem;
+  z-index: 1;
   width: 3.2rem;
   height: 3.2rem;
   border-radius: .4rem;
@@ -186,6 +187,7 @@ const handleClearHistoryKeywords = () => {
     display: none;
     border: 0;
     background-color: transparent;
+    font-size: var(--font-size-sm);
     outline: none;
   }
 
@@ -198,6 +200,13 @@ const handleClearHistoryKeywords = () => {
     width: 24rem;
     padding-left: var(--gap-sm);
     border: 1px solid var(--primary-color);
+
+    @media screen and (max-width: 768px) {
+      position: absolute;
+      left: 1.6rem;
+      width: calc(100% - 3.2rem);
+      background-color: var(--bg);
+    }
 
     .keyword {
       display: block;
@@ -219,6 +228,7 @@ const handleClearHistoryKeywords = () => {
     margin-top: .2rem;
     border-radius: .4rem;
     border: 1px solid var(--border-color);
+    background-color: var(--bg);
     overflow-y: auto;
 
     .header {

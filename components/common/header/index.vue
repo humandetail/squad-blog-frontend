@@ -30,7 +30,8 @@ router.afterEach(() => {
   z-index: 10;
   height: 6.4rem;
   padding: 0 var(--gap);
-  background-color: var(--bg);
+  background-color: rgb(var(--bg)/.75);
+  backdrop-filter: blur(.8rem);
 
   :deep(.operations) {
     margin-left: auto;

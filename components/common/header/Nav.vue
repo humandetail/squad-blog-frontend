@@ -53,7 +53,7 @@ const menuBtnActive = inject('menuBtnActive', ref(false))
   }
 }
 
-@media (width <= 750px) {
+@media screen and (max-width: 768px) {
   .nav {
     display: none;
     position: fixed;
