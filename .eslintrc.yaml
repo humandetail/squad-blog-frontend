@@ -9,3 +9,4 @@ extends:
 
 rules:
   vue/html-self-closing: 0
+  vue/no-v-html: 0

@@ -14,4 +14,16 @@ if (!settings.value) {
 
   settings.value = data.value
 }
+
+useHead({
+  titleTemplate: (titleChunks) => {
+    return titleChunks
+      ? `${titleChunks} - ${settings.value?.seoTitle ?? ''}`
+      : settings.value?.seoTitle ?? ''
+  },
+  meta: [
+    { name: 'keywords', content: settings.value?.seoKeywords },
+    { name: 'description', content: settings.value?.seoDescription }
+  ] 
+})
 </script>

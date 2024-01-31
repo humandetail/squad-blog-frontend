@@ -3,6 +3,7 @@
     <CommonHeaderOperationsSearch />
     <CommonHeaderOperationsThemeModeButton />
     <CommonHeaderOperationsMenuButton />
+    <CommonHeaderOperationsTOCButton />
   </section>
 </template>
 

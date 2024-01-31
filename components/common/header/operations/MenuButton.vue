@@ -1,5 +1,6 @@
 <template>
   <button
+    ref="btnRef"
     class="btn btn-menu"
     :class="{
       active: menuBtnActive
@@ -13,8 +14,12 @@
 </template>
 
 <script setup lang="ts">
-
+const btnRef = ref<HTMLButtonElement | null>(null)
 const menuBtnActive = inject('menuBtnActive', ref(false))
+
+useClickOutside(btnRef, () => {
+  menuBtnActive.value = false
+})
 
 const handleMenuBtnClick = () => {
   menuBtnActive.value = !menuBtnActive.value

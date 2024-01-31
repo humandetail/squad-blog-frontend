@@ -69,6 +69,7 @@ const menuBtnActive = inject('menuBtnActive', ref(false))
     .nav-list {
       flex-direction: column;
       justify-content: center;
+      background-color: var(--bg);
 
       .item {
         width: 100%;

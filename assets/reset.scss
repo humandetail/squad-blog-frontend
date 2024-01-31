@@ -7,6 +7,10 @@
   --gap-lg: 2.4rem;
   --gap-sm: 0.8rem;
 
+  --container-width: 96rem;
+  --aside-width: 32rem;
+  --header-height: 6.4rem;
+
   --bg: #fff;
   --border-color: #d6d6d6;
   --primary-text: #333;
@@ -20,18 +24,19 @@
   --orange: #ffc501;
   --white: #fff;
 
-  @media (prefers-color-scheme: dark) {
-    --bg: #0d1117;
-    --btn-bg: rgba(48, 48, 48, 0.4);
-    --primary-text: #e6edf3;
-    --secondary-text: #848d97;
-    --border-color: #30363d;
+  @media (max-width: 960px) {
+    --container-width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    --aside-width: 100%;
   }
 }
 
 html {
   font-family: Sans,DM Sans fallback,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
   font-size: 10px;
+  scroll-behavior: smooth;
 
   @media screen and (max-width: 768px) {
     font-size: calc(100vw / 76.8 - 0px);
@@ -56,6 +61,7 @@ body {
   line-height: 1.5;
   color: var(--primary-text);
   background-color: var(--bg);
+  -webkit-font-smoothing: antialiased
 }
 
 * { box-sizing: border-box; }
@@ -109,4 +115,10 @@ a {
   &:hover {
     color: var(--primary-color);
   }
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

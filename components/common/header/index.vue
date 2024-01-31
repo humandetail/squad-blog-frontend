@@ -28,7 +28,7 @@ router.afterEach(() => {
   position: sticky;
   top: 0;
   z-index: 10;
-  height: 6.4rem;
+  height: var(--header-height);
   padding: 0 var(--gap);
   background-color: rgb(var(--bg)/.75);
   backdrop-filter: blur(.8rem);

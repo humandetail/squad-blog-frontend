@@ -9,11 +9,13 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    // '/api/*': { cache: { maxAge: 60 * 60 } }
+    '/api/*': { cache: { maxAge: 60 * 60 } }
   },
 
   css: [
-    '@/assets/reset.scss'
+    '@/assets/reset.scss',
+    '@/assets/github.dark.scss',
+    '@/assets/github.scss',
   ],
 
   app: {

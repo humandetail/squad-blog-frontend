@@ -1,5 +1,17 @@
-const themeMode = localStorage.getItem('HUMANDETAIL_THEME')
+let themeMode = localStorage.getItem('HUMANDETAIL_THEME')
 
-if (themeMode) {
-  document.documentElement.setAttribute('data-theme', themeMode)
+if (!themeMode) {
+  // 跟随系统
+  const scheme = window.matchMedia(`(prefers-color-scheme: ${themeMode.value})`)
+  
+  if (!scheme.matches) {
+    themeMode = themeMode === 'light' ? 'dark' : 'light'
+  }
 }
+
+if (!['light', 'dark'].includes(themeMode)) {
+  themeMode = 'light'
+}
+
+document.documentElement.setAttribute('data-theme', themeMode)
+localStorage.setItem('HUMANDETAIL_THEME', themeMode)
