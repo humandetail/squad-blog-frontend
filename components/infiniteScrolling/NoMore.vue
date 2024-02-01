@@ -9,7 +9,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--gap-sm);
+  padding: var(--gap) var(--gap-sm);
+  opacity: .6;
 
   > span {
     position: relative;

@@ -43,14 +43,20 @@ const props = defineProps<{
 const postLink = computed(() => ({ path: `/posts/${props.record.id}` }))
 
 const widgets = computed(() => {
-  const { createdTime, tags } = props.record
+  const { createdTime, tags, categoryName, categoryDisplayName } = props.record
 
   return [
     {
       value: dateFormat(createdTime),
       icon: 'time'
     },
-    ...tags.map(tag => {
+    ...(categoryName && categoryDisplayName ? [{
+      value: categoryDisplayName,
+      route: {
+        path: `/categories/${categoryName}`,
+      }
+    }] : []),
+    ...(tags ?? []).map(tag => {
       return {
         value: tag.displayName,
         route: {
