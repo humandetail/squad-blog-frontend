@@ -29,6 +29,11 @@ defineProps<{
 </script>
 
 <style lang="scss" scoped>
+a {
+  display: inline-flex;
+  align-items: center;
+  height: 2rem;
+}
 .article-widget {
   display: inline-flex;
   gap: .4rem;

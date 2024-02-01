@@ -11,3 +11,15 @@ export interface ArticleTag {
   value: string
   route: RouteLocation
 }
+
+export interface ArticleCover {
+  route: RouteLocation
+  src: string
+  alt?: string
+}
+
+export interface Breadcrumb {
+  value: string
+  icon?: string
+  route?: RouteLocation
+}

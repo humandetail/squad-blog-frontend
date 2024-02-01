@@ -11,14 +11,15 @@
           首页
         </router-link>
       </li>
-      <li class="item">
-        <router-link to="/categories/1">
-          前端
-        </router-link>
-      </li>
-      <li class="item">
-        <router-link to="/categories/2">
-          后端
+      <li
+        v-for="item of categories"
+        :key="item.id"
+        class="item"
+      >
+        <router-link
+          :to="`/categories/${item.name}`"
+        >
+          {{ item.displayName }}
         </router-link>
       </li>
       <li class="item">
@@ -31,7 +32,15 @@
 </template>
 
 <script setup lang="ts">
+import { getCategories } from '~/config/api'
+
 const menuBtnActive = inject('menuBtnActive', ref(false))
+
+const { data } = await getCategories()
+
+const categories = computed(() => {
+  return data.value?.records ?? []
+})
 </script>
 
 <style lang="scss" scoped>
