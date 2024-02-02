@@ -46,16 +46,17 @@ const widgets = computed(() => {
   const { createdTime, tags, categoryName, categoryDisplayName } = props.record
 
   return [
-    {
-      value: dateFormat(createdTime),
-      icon: 'time'
-    },
     ...(categoryName && categoryDisplayName ? [{
       value: categoryDisplayName,
+      icon: 'category',
       route: {
         path: `/categories/${categoryName}`,
       }
     }] : []),
+    {
+      value: dateFormat(createdTime),
+      icon: 'time'
+    },
     ...(tags ?? []).map(tag => {
       return {
         value: tag.displayName,
@@ -147,7 +148,7 @@ const cover = computed(() => {
   .widgets {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--gap-sm);
+    gap: calc(var(--gap-sm) / 2) var(--gap-sm);
     grid-row: 4 / 4;
     grid-column: 1 / 4;
   }
