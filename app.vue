@@ -1,11 +1,13 @@
 <template>
-  <NuxtLoadingIndicator />
-  <NuxtLayout>
-    <NuxtPage
-      :page-key="route => route.fullPath"
-      :keepalive="true"
-    />
-  </NuxtLayout>
+  <div style="height: 100%">
+    <NuxtLoadingIndicator />
+    <NuxtLayout>
+      <NuxtPage
+        :page-key="route => route.fullPath"
+        :keepalive="true"
+      />
+    </NuxtLayout>
+  </div>
 </template>
 
 <script setup lang="ts">

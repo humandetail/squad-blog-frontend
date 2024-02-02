@@ -23,7 +23,7 @@
     "nuxt": "^3.10.0",
     "sass": "^1.70.0",
     "typescript": "*",
-    "vue": "^3.4.14",
+    "vue": "^3.4.8",
     "vue-router": "^4.2.5"
   },
   "lint-staged": {
@@ -50,5 +50,10 @@
     "markdown-it-task-lists": "^2.1.1",
     "markdown-it-toc-done-right": "^4.2.0",
     "uslug": "^1.0.4"
+  },
+  "npm": {
+    "overrides": {
+      "vue": "3.4.8"
+    }
   }
 }
