@@ -34,6 +34,10 @@
 <script setup lang="ts">
 import { getAboutUs } from '~/config/api'
 
+definePageMeta({
+  layout: 'no-aside'
+})
+
 const { data } = await getAboutUs()
 
 const list = computed(() => {

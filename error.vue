@@ -1,7 +1,11 @@
 <template>
   <div class="page-not-found">
     <h2>{{ error.statusCode }}</h2>
+    <div class="reason">
+      {{ error.message }}
+    </div>
     <button
+      class="btn-back"
       aria-label="button"
       @click="handleError"
     >
@@ -24,3 +28,39 @@ defineProps<{
 
 const handleError = () => clearError({ redirect: '/' })
 </script>
+
+<style lang="scss" scoped>
+.page-not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10vh;
+  width: 100vw;
+  height: 100vh;
+
+  h2 {
+    font-size: 10vw;
+    color: var(--red);
+  }
+
+  .reason {
+    font-size: 6vw;
+  }
+
+  .btn-back {
+    width: 80vw;
+    height: 10vh;
+    font-size: 4vw;
+    color: var(--white);
+    border: 0;
+    border-radius: 1vw;
+    background-color: var(--primary-color);
+    cursor: pointer;
+
+    &:hover {
+      opacity: .9;
+    }
+  }
+}
+</style>
