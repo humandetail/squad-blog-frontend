@@ -15,7 +15,7 @@
     >
       玩命加载中 ...
     </CommonLoading>
-    <InfiniteScrollingNoMore v-if="noMore" />
+    <InfiniteScrollingNoMore v-if="noMoreBtnVisible" />
   </div>
 </template>
 
@@ -33,14 +33,23 @@ const props = withDefaults(defineProps<{
 const emits = defineEmits<(e: 'reach-bottom') => void>()
 
 const detectorRef = ref<HTMLElement | null>(null)
+const noMoreBtnVisible = ref(false)
 
 let observer: IntersectionObserver | null = null
 
 onMounted(() => {
   if (detectorRef.value) {
     observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting && !props.loading && !props.noMore) {
-        emits('reach-bottom')
+      if (entries[0].isIntersecting && !props.loading) {
+        if (!props.noMore) {
+          emits('reach-bottom')
+        } else {
+          noMoreBtnVisible.value = true
+
+          setTimeout(() => {
+            noMoreBtnVisible.value = false
+          }, 2000)
+        }
       }
     })
 
