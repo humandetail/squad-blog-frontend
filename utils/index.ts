@@ -58,3 +58,11 @@ export const sendMessageToGiscus = <T extends { setConfig: any }>(message: T) =>
   if (!iframe?.contentWindow) return
   iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app')
 }
+
+export const replaceKeyword = (source: string, keyword: string) => {
+  const regExp = new RegExp(keyword, 'i')
+
+  return source.replace(regExp, ($i) => {
+    return `<span style="color: var(--red)">${$i}</span>`
+  })
+}

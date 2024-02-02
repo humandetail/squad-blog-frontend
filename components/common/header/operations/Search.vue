@@ -79,7 +79,6 @@ useClickOutside(searchWrapperRef, () => {
 })
 
 router.beforeEach((to, from) => {
-  console.log(to, from)
   if (from.path === '/search') {
     keyword.value = undefined
     focus.value = false

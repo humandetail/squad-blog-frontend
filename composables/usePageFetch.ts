@@ -27,14 +27,15 @@ export default <Data>(
     return total <= (current - 1) * pageSize
   })
 
-  const request = async () => {
+  const request = async (params?: Record<string, any>) => {
     loading.value = true
 
     try {
       const res = await api({
         current: pagination.value.current,
         pageSize: pagination.value.pageSize,
-        ...additionalOptions
+        ...additionalOptions,
+        ...params
       })
 
       const {  records, total } = res.data.value ?? {}

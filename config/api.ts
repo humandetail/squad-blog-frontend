@@ -30,7 +30,7 @@ export const getTags = () => useRequest<PageResponseType<TagsData>>(`${PREFIX}/t
 /**
  * 搜索文章
  */
-export const getPostsByKeywods = ({
+export const getPostsByKeyword = ({
   keyword,
   current,
   pageSize
