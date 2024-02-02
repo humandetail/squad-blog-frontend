@@ -36,11 +36,12 @@ import { getCategories } from '~/config/api'
 
 const menuBtnActive = inject('menuBtnActive', ref(false))
 
-const { data } = await getCategories()
+const categories = useCategories()
 
-const categories = computed(() => {
-  return data.value?.records ?? []
-})
+if (categories.value.length === 0) {
+  const { data } = await getCategories()
+  categories.value = data.value?.records ?? []
+}
 </script>
 
 <style lang="scss" scoped>
