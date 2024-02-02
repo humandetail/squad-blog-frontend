@@ -23,7 +23,7 @@ import type { Breadcrumb } from '~/types'
 import type { PostItem } from '~/types/response'
 
 const route = useRoute()
-// const categories = useCategories()
+const tags = useTags()
 
 const { loading, noMore, data, request } = usePageFetch<PostItem>(getPostByTagName, 1, 10, { name: route.params.name })
 
@@ -36,11 +36,11 @@ const breadcrumbs = computed(() => {
   ] as Breadcrumb[]
 })
 
-// const displayName = computed(() => {
-//   return categories.value.find(item => item.name === route.params.name)?.displayName
-// })
+const displayName = computed(() => {
+  return tags.value.find(item => item.name === route.params.name)?.displayName
+})
 
-// useHead({
-//   title: displayName.value
-// })
+useHead({
+  title: displayName.value
+})
 </script>

@@ -8,7 +8,7 @@
 
     <ul class="list">
       <li
-        v-for="item of records"
+        v-for="item of tags"
         :key="item.id"
         class="item"
       >
@@ -23,9 +23,12 @@
 <script setup lang="ts">
 import { getTags } from '~/config/api'
 
-const { data } = await getTags()
+const tags = useTags()
 
-const records = computed(() => data.value?.records ?? [])
+if (tags.value.length === 0) {
+  const { data } = await getTags()
+  tags.value = data.value?.records ?? []
+}
 </script>
 
 <style lang="scss" scoped>
