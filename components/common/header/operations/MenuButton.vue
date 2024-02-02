@@ -5,6 +5,7 @@
     :class="{
       active: menuBtnActive
     }"
+    aria-label="button"
     @click="handleMenuBtnClick"
   >
     <span class="line"></span>

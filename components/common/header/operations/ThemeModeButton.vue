@@ -1,6 +1,7 @@
 <template>
   <button
     class="btn btn-theme-mode"
+    aria-label="button"
     @click="handleThemeModeBtnClick"
   >
     <CommonIcon

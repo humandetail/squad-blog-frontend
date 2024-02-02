@@ -5,6 +5,7 @@
     :class="{
       visible
     }"
+    aria-label="button"
     @click="handleClick"
   >
     目录

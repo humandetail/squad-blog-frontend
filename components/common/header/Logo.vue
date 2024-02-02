@@ -6,7 +6,7 @@
     <img
       class="site-logo"
       :src="settings?.logoPic"
-      alt="细节个人博客"
+      alt="logo"
     />
     <div class="site-name">
       {{ settings?.siteName }}

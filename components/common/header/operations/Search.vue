@@ -7,6 +7,7 @@
     <input
       ref="inputRef"
       v-model="keyword"
+      name="keyword"
       class="keyword"
       type="text"
       placeholder="输入「关键字」查询"
@@ -15,6 +16,7 @@
     />
     <button
       ref="btnRef"
+      aria-label="button"
       class="btn"
       @click="handleClick"
     >
@@ -35,6 +37,7 @@
         </h4>
         <button
           class="btn-clear"
+          aria-label="button"
           @click="handleClearHistoryKeywords"
         >
           清空

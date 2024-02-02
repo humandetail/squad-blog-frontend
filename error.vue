@@ -1,7 +1,10 @@
 <template>
   <div class="page-not-found">
     <h2>{{ error.statusCode }}</h2>
-    <button @click="handleError">
+    <button
+      aria-label="button"
+      @click="handleError"
+    >
       返回首页
     </button>
   </div>
