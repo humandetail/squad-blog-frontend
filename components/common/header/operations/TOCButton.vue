@@ -15,12 +15,14 @@
 <script setup lang="ts">
 import debounce from 'lodash.debounce'
 
+const TOC_CONTAINER = '.toc-container'
+
 const visible = ref(false)
 const btnRef = ref<HTMLButtonElement | null>(null)
 
 useClickOutside(btnRef, () => {
   if (visible.value) {
-    const oTOC = document.querySelector<HTMLElement>('.toc-wrapper')
+    const oTOC = document.querySelector<HTMLElement>(TOC_CONTAINER)
     visible.value = false
     if (oTOC) {
       oTOC.style.display = visible.value ? 'block' : 'none'
@@ -35,7 +37,7 @@ onMounted(() => {
 const handleClick = () => {
   visible.value = !visible.value
 
-  const oTOC = document.querySelector<HTMLElement>('.toc-wrapper')
+  const oTOC = document.querySelector<HTMLElement>(TOC_CONTAINER)
 
   if (oTOC) {
     oTOC.style.display = visible.value ? 'block' : 'none'
@@ -49,7 +51,7 @@ const handleResize = debounce((e) => {
   } else {
     visible.value = true
   }
-  const oTOC = document.querySelector<HTMLElement>('.toc-wrapper')
+  const oTOC = document.querySelector<HTMLElement>(TOC_CONTAINER)
   if (oTOC) {
     oTOC.style.display = visible.value ? 'block' : 'none'
   }

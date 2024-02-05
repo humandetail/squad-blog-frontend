@@ -1,7 +1,7 @@
 <template>
   <div style="height: 100%">
-    <NuxtLoadingIndicator />
     <NuxtLayout>
+      <NuxtLoadingIndicator />
       <NuxtPage
         :page-key="route => route.fullPath"
         :keepalive="true"

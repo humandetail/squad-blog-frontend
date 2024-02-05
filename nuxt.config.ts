@@ -12,6 +12,12 @@ export default defineNuxtConfig({
     '/api/*': { cache: { maxAge: 60 * 60 } }
   },
 
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth'
+    }
+  },
+
   css: [
     '@/assets/reset.scss',
     '@/assets/github.dark.scss',

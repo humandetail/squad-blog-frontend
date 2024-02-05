@@ -1,5 +1,5 @@
 <template>
-  <section class="hot">
+  <section class="tags">
     <header class="header">
       <h2 class="title">
         标签

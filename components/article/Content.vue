@@ -1,15 +1,19 @@
 <template>
-  <main
-    ref="contentRef"
-    class="posts-content"
-    v-html="data[1]"
-  ></main>
-  <Teleport to=".page-aside">
-    <section
-      class="toc-wrapper"
-      v-html="data[0]"
-    ></section>
-  </Teleport>
+  <div>
+    <main
+      ref="contentRef"
+      class="posts-content"
+      v-html="data[1]"
+    ></main>
+    <ClientOnly>
+      <Teleport to="#toc">
+        <section
+          class="toc-wrapper"
+          v-html="data[0]"
+        ></section>
+      </Teleport>
+    </ClientOnly>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -69,6 +73,7 @@ const handleClick = (e: MouseEvent) => {
 
   if (target.classList.contains('hljs-code-copy')) {
     copyCode(target)
+    return
   }
 
   if (target.tagName === 'IMG') {
@@ -76,8 +81,11 @@ const handleClick = (e: MouseEvent) => {
   }
 }
 
+const TOC_CONTAINER = '.toc-container'
+const unActiveLink = new Set<HTMLElement>()
+
 const handleScroll = debounce(() => {
-  const oToc = document.querySelector('.toc-wrapper')
+  const oToc = document.querySelector(TOC_CONTAINER)
   const oActive = oToc?.querySelector('.active')
 
   if (!oActive) {
@@ -91,16 +99,37 @@ const handleScroll = debounce(() => {
 }, 100)
 
 const toggleTOCActive = (entries: IntersectionObserverEntry[]) => {
-  const oToc = document.querySelector('.toc-wrapper')
+  const oToc = document.querySelector(TOC_CONTAINER)
 
   if (!oToc) {
     return
   }
 
   entries.forEach(entry => {
-    const oA = oToc.querySelector(`a[href="#${entry.target.id}"]`)
+    const oA = oToc.querySelector<HTMLElement>(`a[href="#${entry.target.id}"]`)
+
     if (oA) {
-      oA.classList[entry.intersectionRatio > 0 ? 'add' : 'remove']('active')
+      if (entry.intersectionRatio > 0) {
+        oA.classList.add('active')
+        return
+      }
+
+      const oLinks = oToc.querySelectorAll('a')
+      const len = [].filter.call(oLinks, (link: HTMLElement) => {
+        return link.classList.contains('active')
+      }).length
+
+      if (len > 1) {
+        oA.classList.remove('active')
+        if (unActiveLink.size > 1) {
+          unActiveLink.forEach(link => {
+            link.classList.remove('active')
+          })
+        }
+      } else {
+        unActiveLink.add(oA)
+      }
+      // oA.classList[entry.intersectionRatio > 0 ? 'add' : 'remove']('active')
     }
   })
 
@@ -643,39 +672,22 @@ const toggleTOCActive = (entries: IntersectionObserverEntry[]) => {
 
 <style lang="scss">
 .toc-wrapper {
-  position: sticky;
-  top: var(--header-height);
-  height: calc(100vh - var(--header-height) - var(--gap));
-  overflow-y: auto;
+  // position: relative;
+  // // position: sticky;
+  // // top: var(--header-height);
+  // height: calc(100vh - var(--header-height) - var(--gap));
+  // overflow-y: auto;
 
-  @media (max-width: 768px) {
-    display: none;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100vw;
-    height: 100vh;
-    padding: var(--header-height) var(--gap) var(--gap);
-    background-color: var(--bg);
-  }
-
-  &::before {
-    content: '目录';
-    position: sticky;
-    top: 0;
-    display: block;
-    width: 100%;
-    font-size: 1.8rem;
-    padding: var(--gap-sm) 0;
-    font-weight: 700;
-    border-bottom: 1px solid var(--border-color);
-    background-color: var(--bg);
-
-    @media (max-width: 768px) {
-      background-color: rgb(var(--bg)/.75);
-      backdrop-filter: blur(.8rem);
-    }
-  }
+  // @media (max-width: 768px) {
+  //   display: none;
+  //   position: fixed;
+  //   left: 0;
+  //   top: 0;
+  //   width: 100vw;
+  //   height: 100vh;
+  //   padding: var(--header-height) var(--gap) var(--gap);
+  //   background-color: var(--bg);
+  // }
 
   .table-of-contents {
     padding: 1.6rem 0;
