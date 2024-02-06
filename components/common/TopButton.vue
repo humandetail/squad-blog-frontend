@@ -2,6 +2,7 @@
   <button
     ref="btnRef"
     class="btn-to-top"
+    title="返回顶部"
     @click="gotoTop"
   >
     <svg
@@ -135,12 +136,15 @@ onBeforeUnmount(() => {
   cursor: pointer;
 
   &:hover {
-    .fire {
-      animation: open-fire linear .8s infinite;
-    }
+    .icon {
+      .fire {
+        opacity: 1;
+        animation: open-fire linear .8s infinite;
+      }
 
-    .circle-ani {
-      animation: circle-ani .8s linear forwards;
+      .circle-ani {
+        animation: circle-ani .3s linear forwards;
+      }
     }
   }
 
@@ -151,7 +155,18 @@ onBeforeUnmount(() => {
   }
 
   .icon {
+    .main {
+      stroke: var(--secondary-text);
+    }
+
+    .circle-ani {
+      stroke: var(--red);
+    }
+
     .fire {
+      opacity: 0;
+      stroke: var(--orange);
+      fill: var(--red);
       transform-origin: center center;
     }
   }

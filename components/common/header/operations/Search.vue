@@ -164,7 +164,6 @@ const handleHistoryItemClick = (value: string) => {
 }
 
 const handleClearHistoryKeywords = () => {
-  console.log('click?')
   historyKeywords.value = []
   try {
     localStorage.removeItem(HISTORY_KEYWORDS_KEY)
