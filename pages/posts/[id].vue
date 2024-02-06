@@ -110,26 +110,28 @@ useHead({
 </script>
 
 <style lang="scss" scoped>
-.progress-bar {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: .4rem;
-  background-image: linear-gradient(
-    to right,
-    hsl(360 100% 50%),
-    hsl(315 100% 50%),
-    hsl(270 100% 50%),
-    hsl(225 100% 50%),
-    hsl(180 100% 50%),
-    hsl(135 100% 50%),
-    hsl(90 100% 50%),
-    hsl(45 100% 50%),
-    hsl(0 100% 50%)
-  );
-  animation-name: rotateAnimation;
-  animation-duration: 1ms; /* Firefox requires this to apply the animation */
-  animation-timeline: --scrollTimeline;
+@supports(scroll-timeline: --scrollTimeline y) {
+  .progress-bar {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: .4rem;
+    background-image: linear-gradient(
+      to right,
+      hsl(360 100% 50%),
+      hsl(315 100% 50%),
+      hsl(270 100% 50%),
+      hsl(225 100% 50%),
+      hsl(180 100% 50%),
+      hsl(135 100% 50%),
+      hsl(90 100% 50%),
+      hsl(45 100% 50%),
+      hsl(0 100% 50%)
+    );
+    animation-name: rotateAnimation;
+    animation-duration: 1ms; /* Firefox requires this to apply the animation */
+    animation-timeline: --scrollTimeline;
+  }
 }
 
 .title {

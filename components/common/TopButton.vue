@@ -7,6 +7,8 @@
   >
     <svg
       class="icon"
+      width="32"
+      height="32"
       viewBox="0 0 1024 1024"
     >
       <g
@@ -108,11 +110,11 @@ const gotoTop = () => {
 }
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll)
+  document.addEventListener('scroll', handleScroll)
 })
 
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll)
+  document.removeEventListener('scroll', handleScroll)
 })
 </script>
 
@@ -123,7 +125,7 @@ onBeforeUnmount(() => {
   align-items: center;
   position: fixed;
   bottom: 3.2rem;
-  right: 3.2rem;
+  right: 2rem;
   z-index: 999;
   width: 3.2rem;
   height: 3.2rem;

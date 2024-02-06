@@ -44,7 +44,7 @@ const handleClick = () => {
   }
 }
 
-const handleResize = debounce((e) => {
+const handleResize = debounce(() => {
   if (window.innerWidth <= 768) {
     visible.value = false
   } else {
