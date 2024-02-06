@@ -37,6 +37,7 @@ html {
   font-family: Sans,DM Sans fallback,ui-sans-serif,system-ui,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
   font-size: 10px;
   scroll-behavior: smooth;
+  scroll-timeline: --scrollTimeline y;
 
   @media screen and (max-width: 768px) {
     font-size: calc(100vw / 76.8 - 0px);

@@ -1,5 +1,7 @@
 <template>
   <div class="posts">
+    <div class="progress-bar"></div>
+
     <h1 class="title">
       {{ postData.title }}
     </h1>
@@ -108,6 +110,28 @@ useHead({
 </script>
 
 <style lang="scss" scoped>
+.progress-bar {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: .4rem;
+  background-image: linear-gradient(
+    to right,
+    hsl(360 100% 50%),
+    hsl(315 100% 50%),
+    hsl(270 100% 50%),
+    hsl(225 100% 50%),
+    hsl(180 100% 50%),
+    hsl(135 100% 50%),
+    hsl(90 100% 50%),
+    hsl(45 100% 50%),
+    hsl(0 100% 50%)
+  );
+  animation-name: rotateAnimation;
+  animation-duration: 1ms; /* Firefox requires this to apply the animation */
+  animation-timeline: --scrollTimeline;
+}
+
 .title {
   padding-top: var(--gap-sm);
   font-size: 2.6rem;
@@ -149,5 +173,14 @@ useHead({
 
 .discussions-wrapper {
   margin-top: 3.2rem;
+}
+@keyframes rotateAnimation {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
 }
 </style>

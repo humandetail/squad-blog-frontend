@@ -2,7 +2,7 @@ let themeMode = localStorage.getItem('HUMANDETAIL_THEME')
 
 if (!themeMode) {
   // 跟随系统
-  const scheme = window.matchMedia(`(prefers-color-scheme: ${themeMode.value})`)
+  const scheme = window.matchMedia(`(prefers-color-scheme: ${themeMode})`)
   
   if (!scheme.matches) {
     themeMode = themeMode === 'light' ? 'dark' : 'light'
