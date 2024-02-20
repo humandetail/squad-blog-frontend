@@ -128,6 +128,7 @@ useHead({
       hsl(45 100% 50%),
       hsl(0 100% 50%)
     );
+    background-repeat: no-repeat;
     animation-name: rotateAnimation;
     animation-duration: 1ms; /* Firefox requires this to apply the animation */
     animation-timeline: --scrollTimeline;
@@ -178,11 +179,11 @@ useHead({
 }
 @keyframes rotateAnimation {
   from {
-    width: 0;
+    transform: translateX(-100%);
   }
 
   to {
-    width: 100%;
+    transform: translateX(0);
   }
 }
 </style>
