@@ -21,7 +21,7 @@ const visible = ref(false)
 const btnRef = ref<HTMLButtonElement | null>(null)
 
 useClickOutside(btnRef, () => {
-  if (visible.value) {
+  if (visible.value && (btnRef.value?.getBoundingClientRect()?.width ?? 0) > 0) {
     const oTOC = document.querySelector<HTMLElement>(TOC_CONTAINER)
     visible.value = false
     if (oTOC) {
@@ -45,16 +45,12 @@ const handleClick = () => {
 }
 
 const handleResize = debounce(() => {
-  if (window.innerWidth <= 768) {
-    visible.value = false
-  } else {
-    visible.value = true
-  }
+  visible.value = window.innerWidth > 768
   const oTOC = document.querySelector<HTMLElement>(TOC_CONTAINER)
   if (oTOC) {
     oTOC.style.display = visible.value ? 'block' : 'none'
   }
-}, 16)
+}, 8)
 </script>
 
 <style lang="scss" scoped>

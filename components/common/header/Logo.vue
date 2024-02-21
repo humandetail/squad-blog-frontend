@@ -35,6 +35,13 @@ const settings = useSettings()
     font-size: 2.2rem;
     font-weight: 700;
     color: var(--primary-text);
+    transition: all .1s ease-in;
+  }
+
+  &:hover {
+    .site-name {
+      text-shadow: 1px 1px 1px var(--bg), 0 0 .5em var(--primary-text), 0 0 .2em var(--primary-text);
+    }
   }
 }
 </style>

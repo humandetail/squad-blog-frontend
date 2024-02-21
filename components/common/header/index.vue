@@ -24,7 +24,7 @@ router.afterEach(() => {
 .page-header {
   display: flex;
   align-items: center;
-  gap: var(--gap-lg);
+  gap: calc(var(--gap-lg) + 0.2rem);
   position: sticky;
   top: 0;
   z-index: 10;

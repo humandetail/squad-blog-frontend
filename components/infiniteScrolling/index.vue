@@ -62,6 +62,8 @@ onBeforeUnmount(() => {
     observer.disconnect()
   }
 })
+
+emits('reach-bottom')
 </script>
 
 <style lang="scss" scoped>
