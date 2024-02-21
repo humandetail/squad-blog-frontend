@@ -25,6 +25,26 @@
         :key="index"
         :content="content"
       />
+
+      <div
+        v-if="record.tags?.length > 0"
+        class="tags"
+      >
+        <CommonIcon
+          icon="tags"
+          :size="1.6"
+        />
+        <ArticleWidget
+          v-for="tag of record.tags"
+          :key="tag.name"
+          :content="{
+            value: tag.displayName,
+            route: {
+              path: `/tags/${tag.name}`,
+            }
+          } as ArticleWidget"
+        />
+      </div>
     </div>
     <ArticleCover
       :cover="cover"
@@ -43,7 +63,7 @@ const props = defineProps<{
 const postLink = computed(() => ({ path: `/posts/${props.record.id}` }))
 
 const widgets = computed(() => {
-  const { createdTime, tags, categoryName, categoryDisplayName } = props.record
+  const { createdTime, categoryName, categoryDisplayName } = props.record
 
   return [
     ...(categoryName && categoryDisplayName ? [{
@@ -56,15 +76,7 @@ const widgets = computed(() => {
     {
       value: dateFormat(createdTime),
       icon: 'time'
-    },
-    ...(tags ?? []).map(tag => {
-      return {
-        value: tag.displayName,
-        route: {
-          path: `/tags/${tag.name}`,
-        }
-      }
-    })
+    }
   ] as ArticleWidget[]
 })
 
@@ -151,6 +163,17 @@ const cover = computed(() => {
     gap: calc(var(--gap-sm) / 2) var(--gap-sm);
     grid-row: 4 / 4;
     grid-column: 1 / 4;
+
+    .tags {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--gap-sm);
+
+      .icon {
+        margin-right: calc(var(--gap-sm) / -2);
+        color: var(--secondary-text);
+      }
+    }
   }
 
   :deep(.cover) {

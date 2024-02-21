@@ -46,7 +46,15 @@ a {
   }
 }
 
-a .article-widget {
-  color: var(--primary-color);
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline dashed;
+
+    .article-widget {
+      color: var(--primary-color);
+    }
+  }
 }
 </style>
