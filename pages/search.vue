@@ -96,6 +96,7 @@ const breadcrumbs = computed(() => {
 watch(keyword, (newVal, oldVal) => {
   if (newVal !== oldVal) {
     pagination.value.current = 1
+    pagination.value.total = 0
     data.value = []
   }
 
