@@ -11,7 +11,19 @@
 </template>
 
 <script setup lang="ts">
-import { getSettings } from './config/api'
+import { getSettings, report } from './config/api'
+
+const router = useRouter()
+
+router.afterEach((_to, from) => {
+  doReport(from.fullPath)
+})
+
+onMounted(() => {
+  nextTick().then(() => {
+    doReport()
+  })
+})
 
 const settings = useSettings()
 
@@ -32,4 +44,21 @@ useHead({
     { name: 'description', content: settings.value?.seoDescription }
   ]
 })
+
+const doReport = (from?: string) => {
+  try {
+    const page = encodeURI(location.href)
+    const ua = navigator.userAgent ?? ''
+    const source = encodeURI(from ? from : (document.referrer ?? ''))
+
+    report({
+      page,
+      ua,
+      source
+    })
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.log(err)
+  }
+}
 </script>

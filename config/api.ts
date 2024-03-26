@@ -115,3 +115,9 @@ export const getPostDetail = (id: string) => useRequest<PostDetail>(`${PREFIX}/p
   key: `POSTS_DETAIL_${id}`,
   params: { id }
 })
+
+export const report = (params: Record<string, any>) => useRequest<any>(`${PREFIX}/report`, {
+  key: `${Math.random()}${params.page}`,
+  lazy: true,
+  params
+})

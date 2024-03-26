@@ -4,7 +4,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      api: 'https://api.humandetail.com/api/frontend-service'
+      api: 'http://localhost:7001/api/frontend-service'
     }
   },
 
