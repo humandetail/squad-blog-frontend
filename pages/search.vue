@@ -29,7 +29,7 @@
         <template v-else>
           抱歉没有找到与「
           <span class="keyword">
-            {{ keyword }}
+            {{ isURL ? '' : keyword }}
           </span>
           」相关的内容。
         </template>
@@ -84,10 +84,12 @@ const route = useRoute()
 const keyword = computed(() => route.query.keyword as string)
 const { data, loading, noMore, request, pagination } = usePageFetch<PostItem>(getPostsByKeyword, 1, 10)
 
+const isURL = computed(()=> /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/.test(keyword.value))
+
 const breadcrumbs = computed(() => {
   return [
     {
-      value: keyword.value,
+      value: isURL.value ? '' : keyword.value,
       icon: 'search'
     }
   ] as Breadcrumb[]
@@ -100,7 +102,7 @@ watch(keyword, (newVal, oldVal) => {
     data.value = []
   }
 
-  if (newVal) {
+  if (newVal && !isURL.value) {
     request({
       keyword: newVal
     })
@@ -108,7 +110,7 @@ watch(keyword, (newVal, oldVal) => {
 }, { immediate: true })
 
 useHead({
-  title: keyword.value
+  title: pagination.value.total > 0 ? keyword.value : ''
 })
 </script>
 

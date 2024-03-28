@@ -35,23 +35,23 @@ const handleError = () => clearError({ redirect: '/' })
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10vh;
+  gap: 8vh;
   width: 100vw;
   height: 100vh;
 
   h2 {
-    font-size: 10vw;
+    font-size: 8vw;
     color: var(--red);
   }
 
   .reason {
-    font-size: 6vw;
+    font-size: 4vw;
   }
 
   .btn-back {
     width: 80vw;
     height: 10vh;
-    font-size: 4vw;
+    font-size: 2vw;
     color: var(--white);
     border: 0;
     border-radius: 1vw;

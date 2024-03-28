@@ -47,13 +47,13 @@ export default <Data>(
         pageSize
       })
     } catch (err) {
-      error.value = error
+      error.value = err
 
       if (pagination.value.current === 1) {
         throw createError({
           statusCode: 404,
           statusMessage: 'Page Not Found',
-          data: error.value
+          data: err
         })
       }
     } finally {
@@ -80,6 +80,7 @@ export default <Data>(
     loading,
     noMore,
     pagination,
+    error,
     request,
     refresh
   }
